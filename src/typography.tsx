@@ -1,0 +1,125 @@
+import styled, { css } from 'styled-components';
+
+const typographyBase = css`
+  margin: 0;
+  color: ${({ theme }) => theme.surface.on};
+`;
+
+export const Headline1 = styled.h1`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 300;
+  font-size: 96px;
+  line-height: 100px;
+  letter-spacing: -1.5px;
+`;
+
+export const Headline2 = styled.h2`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 300;
+  font-size: 60px;
+  line-height: 68px;
+  letter-spacing: -0.5px;
+`;
+
+export const Headline3 = styled.h3`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: 0px;
+`;
+
+export const Headline4 = styled.h4`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 42px;
+  letter-spacing: .25px;
+`;
+
+export const Headline5 = styled.h5`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+`;
+
+
+export const Headline6 = styled.h6`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0.15px;
+`;
+
+export const Subtitle1 = styled.h6`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+`;
+
+export const Subtitle2 = styled.h6`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+`;
+
+export const Body1 = styled.span`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+`;
+
+export const Body2 = styled.span`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+`;
+
+export const Caption = styled.span`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+`;
+
+export const ButtonText = styled.span`
+  margin: 0;
+  //font-family: ;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+`;
+
+export const Overline = styled.span`
+  ${typographyBase}
+  //font-family: ;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.5px;
+`;

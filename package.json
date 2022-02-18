@@ -1,0 +1,46 @@
+{
+  "name": "@theturkeydev/gobble-lib-react",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/TheTurkeyDev"
+  },
+  "version": "1.0.0",
+  "description": "A collection of React components commonly used in my projects",
+  "author": "TurkeyDev",
+  "license": "ISC",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint ./src/**/*.{ts,tsx} --quiet",
+    "lint-fix": "eslint --fix ./src/**/*.{ts,tsx}"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/styled-components": "^5.1.22",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-plugin-functional": "^4.2.0",
+    "eslint-plugin-react": "^7.28.0",
+    "rollup": "^2.67.2",
+    "rollup-plugin-dts": "^4.1.0",
+    "ts-loader": "^9.2.6",
+    "tsutils": "^3.21.0",
+    "typescript": "^4.5.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "styled-components": "^5.3.3"
+  }
+}
