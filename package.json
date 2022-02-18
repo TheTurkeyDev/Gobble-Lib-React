@@ -15,7 +15,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "publish": "rollup -c && npm publish",
+    "publish": "rollup -c && npm version patch && npm publish",
     "lint": "eslint ./src/**/*.{ts,tsx} --quiet",
     "lint-fix": "eslint --fix ./src/**/*.{ts,tsx}"
   },
