@@ -1,15 +1,16 @@
-import styled from 'styled-components';
+import styled, { ThemeProps } from 'styled-components';
+import { BaseTheme } from '../theme/turkeydev-theme';
 import { Caption } from '../typography';
 
 const HelperTextWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 48px auto;
-    color: ${({ theme }) => theme.primary.on};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
 `;
 
 const Label = styled.label`
-    color: ${({ theme }) => theme.primary.on};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
     position: absolute;
     font-size: 16px;
 `;
@@ -53,7 +54,7 @@ const StyledInput = styled.input`
     }
     
     &:focus ~ ${Label} {
-        color: ${({ theme }) => theme.primary.color};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
     }
 
     &:required, &:invalid {
@@ -62,16 +63,16 @@ const StyledInput = styled.input`
 `;
 
 const InputContainer = styled.div`
-    background: ${({ theme }) => theme.surface.on}0A;
+    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on}0A;
     padding: 0 12px 0 16px;
-    border-bottom: 2px solid ${({ theme }) => theme.outline};
+    border-bottom: 2px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.outline};
     height: 48px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     transition: border-color 0.2s;
 
     &:focus-within {
-        border-bottom: 2px solid ${({ theme }) => theme.primary.color};
+        border-bottom: 2px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
     }
 `;
 

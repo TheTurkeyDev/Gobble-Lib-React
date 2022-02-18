@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { ThemeProps } from 'styled-components';
+import { BaseTheme } from './theme/turkeydev-theme';
 import { WithChildren } from './with-children-type';
 
 export const BackgroundWrapper = styled.div`
@@ -15,8 +16,8 @@ export const BackgroundWrapper = styled.div`
 `;
 
 export const ModalContent = styled.div`
-    background: ${({ theme }) => theme.surface.color};
-    color: ${({ theme }) => theme.surface.on};
+    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
     box-shadow: -2rem 2rem 2rem rgba(0,0,0, 0.2);
     filter: blur(0);
     border-radius: 15px;

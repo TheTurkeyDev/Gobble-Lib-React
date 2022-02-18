@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
-import { ThemeProvider, DefaultTheme } from 'styled-components';
+import { ThemeProvider, DefaultTheme, ThemedStyledInterface } from 'styled-components';
 import { WithChildren } from '../with-children-type';
+import { BaseTheme } from './turkeydev-theme';
 
 export const WHITE = '#ffffff';
 export const CC_BLUE = '#009FBF';
@@ -8,7 +9,7 @@ export const OFF_WHITE = '#fcfcff';
 export const PRIMARY = '#343A40';
 export const SECONDARY = '#212529';
 
-const lightTheme: DefaultTheme = {
+const lightTheme: BaseTheme = {
     isDarkTheme: false,
     background: {
         color: WHITE,
@@ -37,7 +38,7 @@ const lightTheme: DefaultTheme = {
     outline: '#70797c',
 };
 
-const darkTheme: DefaultTheme = {
+const darkTheme: BaseTheme = {
     isDarkTheme: true,
     background: {
         color: SECONDARY,
@@ -91,8 +92,6 @@ export const ThemeContextProvider = ({ children }: WithChildren) => {
         localStorage.setItem(darkModeKey, newTheme);
         setCurrentTheme(newTheme);
     };
-
-    console.log(theme === 'dark' ? darkTheme : lightTheme)
 
     return (
         <ThemeContext.Provider value={{ setTheme, theme }}>

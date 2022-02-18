@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeProps } from 'styled-components';
+import { BaseTheme } from './theme/turkeydev-theme';
 
 const typographyBase = css`
   margin: 0;
-  color: ${({ theme }) => theme.surface.on};
+  color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
 `;
 
 export const Headline1 = styled.h1`

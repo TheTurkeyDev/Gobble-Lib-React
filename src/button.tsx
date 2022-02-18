@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { GLThemeProps } from './theme/turkeydev-theme';
 import { ButtonText } from './typography';
 import { WithChildren } from './with-children-type';
 
@@ -15,9 +16,9 @@ const ButtonWrapper = styled.button<ButtonCSS>`
   grid-template-columns: auto auto;
   gap: ${({ hasIcon }) => hasIcon ? '8px' : 0};
   padding: 8px 16px;
-  background: ${({ variant, theme }) => variant === 'contained' ? theme.primary.color : 'transparent'};
-  color: ${({ variant, theme }) => variant === 'contained' ? theme.primary.on : theme.primary.color};
-  border: ${({ variant, theme }) => variant === 'outlined' ? `1px solid ${theme.primary.color}` : 'none'};
+  background: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.color : 'transparent'};
+  color: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.on : theme.primary.color};
+  border: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'outlined' ? `1px solid ${theme.primary.color}` : 'none'};
 
   &:hover {
     opacity: 92%;

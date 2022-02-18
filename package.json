@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/TheTurkeyDev"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of React components commonly used in my projects",
   "author": "TurkeyDev",
   "license": "ISC",
@@ -15,6 +15,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
+    "publish": "rollup -c && npm publish",
     "lint": "eslint ./src/**/*.{ts,tsx} --quiet",
     "lint-fix": "eslint --fix ./src/**/*.{ts,tsx}"
   },
@@ -25,7 +26,7 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.1.8",
-    "@types/styled-components": "^5.1.22",
+    "@types/styled-components": "^5.1.23",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
     "eslint": "^8.9.0",
