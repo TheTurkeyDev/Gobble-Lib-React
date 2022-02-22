@@ -1,4 +1,4 @@
 
 export type WithChildren = {
-    readonly children: string | JSX.Element | readonly JSX.Element[]
+    readonly children: React.ReactChild
 }

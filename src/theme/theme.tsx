@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { ThemeProvider, DefaultTheme, ThemedStyledInterface } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { WithChildren } from '../with-children-type';
 import { BaseTheme } from './turkeydev-theme';
 
