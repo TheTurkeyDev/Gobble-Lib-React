@@ -35,11 +35,12 @@ const ButtonWrapper = styled.button<ButtonCSS>`
 type ButtonProps = WithChildren & {
     readonly variant: string
     readonly icon?: string
+    readonly selected?: boolean
     readonly onClick: () => void
 }
 
 //TODO: Remove bare div's
-export const Button = ({ variant, icon, onClick, children }: ButtonProps) => (
+export const Button = ({ variant, icon, selected, onClick, children }: ButtonProps) => (
     <ButtonWrapper variant={variant} hasIcon={!!icon} onClick={onClick}>
         <div>
             {icon}
@@ -53,17 +54,18 @@ export const Button = ({ variant, icon, onClick, children }: ButtonProps) => (
 
 type ButtonvariantProps = WithChildren & {
     readonly icon?: string
+    readonly selected?: boolean
     readonly onClick: () => void
 }
 
-export const ContainedButton = ({ icon, onClick, children }: ButtonvariantProps) => (
-    <Button variant='contained' icon={icon} onClick={onClick} children={children} />
+export const ContainedButton = ({ icon, selected, onClick, children }: ButtonvariantProps) => (
+    <Button variant='contained' icon={icon} selected={selected} onClick={onClick} children={children} />
 );
 
-export const OutlinedButton = ({ icon, onClick, children }: ButtonvariantProps) => (
-    <Button variant='outlined' icon={icon} onClick={onClick} children={children} />
+export const OutlinedButton = ({ icon, selected, onClick, children }: ButtonvariantProps) => (
+    <Button variant='outlined' icon={icon} selected={selected} onClick={onClick} children={children} />
 );
 
-export const TextButton = ({ icon, onClick, children }: ButtonvariantProps) => (
-    <Button variant='text' icon={icon} onClick={onClick} children={children} />
+export const TextButton = ({ icon, selected, onClick, children }: ButtonvariantProps) => (
+    <Button variant='text' icon={icon} selected={selected} onClick={onClick} children={children} />
 );

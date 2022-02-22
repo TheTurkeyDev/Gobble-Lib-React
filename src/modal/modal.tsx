@@ -1,6 +1,6 @@
 import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme } from './theme/turkeydev-theme';
-import { WithChildren } from './with-children-type';
+import { BaseTheme } from '../theme/turkeydev-theme';
+import { WithChildren } from '../with-children-type';
 
 export const BackgroundWrapper = styled.div`
     width: 100vw;
