@@ -13,18 +13,20 @@ type ConfirmationModalProps = {
 export const ConfirmationModal = ({ show, text, options }: ConfirmationModalProps) => {
     return (
         <Modal show={show}>
-            <span>{text}</span>
-            <div>
-                {
-                    options.map((option, index) => {
-                        return (
-                            <ContainedButton key={index} onClick={() => option.callback()}>
-                                {option.text}
-                            </ContainedButton>
-                        );
-                    })
-                }
-            </div>
+            <>
+                <span>{text}</span>
+                <div>
+                    {
+                        options.map((option, index) => {
+                            return (
+                                <ContainedButton key={index} onClick={() => option.callback()}>
+                                    {option.text}
+                                </ContainedButton>
+                            );
+                        })
+                    }
+                </div>
+            </>
         </Modal >
     );
 };
