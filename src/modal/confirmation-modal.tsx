@@ -1,7 +1,7 @@
 import { ContainedButton } from '../button';
-import { Modal } from './modal';
+import { Modal } from './base-modal';
 
-type ConfirmationOverlayProps = {
+type ConfirmationModalProps = {
     readonly show: boolean
     readonly text: string
     readonly options: readonly {
@@ -10,7 +10,7 @@ type ConfirmationOverlayProps = {
     }[]
 }
 
-export const ConfirmationOverlay = ({ show, text, options }: ConfirmationOverlayProps) => {
+export const ConfirmationModal = ({ show, text, options }: ConfirmationModalProps) => {
     return (
         <Modal show={show}>
             <span>{text}</span>
