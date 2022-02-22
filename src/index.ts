@@ -6,5 +6,5 @@ export * from './typography';
 export * from './with-children-type';
 export * from './custom-hooks';
 export * from './toast';
-export * from './modal';
+export * from './modals';
 export * from './pages';
