@@ -1,5 +1,6 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import babel from '@rollup/plugin-babel';
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import { terser } from "rollup-plugin-terser";
@@ -12,9 +13,9 @@ export default [
         output: [
             {
                 file: packageJson.main,
-                format: "umd",
+                format: "cjs",
+                exports: 'named',
                 sourcemap: true,
-                name: 'gobble-lib-react',
             },
             {
                 file: packageJson.module,
@@ -24,10 +25,12 @@ export default [
         ],
         plugins: [
             resolve(),
+            babel({ babelHelpers: 'bundled' }),
             commonjs(),
             typescript({ tsconfig: "./tsconfig.json" }),
-            // terser()
+            //terser()
         ],
+        external: ['react', 'react-dom']
     },
     {
         input: "dist/esm/types/index.d.ts",
