@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import babel from '@rollup/plugin-babel';
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from "rollup-plugin-terser";
 
 const packageJson = require("./package.json");
@@ -24,13 +25,14 @@ export default [
             },
         ],
         plugins: [
+            peerDepsExternal(),
             resolve(),
             babel({ babelHelpers: 'bundled' }),
             commonjs(),
             typescript({ tsconfig: "./tsconfig.json" }),
             //terser()
         ],
-        external: ['react', 'react-dom']
+        external: ['react', 'react-dom', "styled-components"]
     },
     {
         input: "dist/esm/types/index.d.ts",

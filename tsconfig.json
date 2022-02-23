@@ -10,12 +10,12 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "declaration": true,
+        "declarationDir": "types",
         "sourceMap": true,
         "allowSyntheticDefaultImports": true,
         "declarationMap": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "noEmit": true,
         "noImplicitAny": true,
         "importHelpers": true,
         "lib": [
