@@ -30,7 +30,7 @@ export default [
             babel({ babelHelpers: 'bundled' }),
             commonjs(),
             typescript({ tsconfig: "./tsconfig.json" }),
-            //terser()
+            terser()
         ],
         external: ['react', 'react-dom', "styled-components"]
     },
