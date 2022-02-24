@@ -4,6 +4,7 @@ import { WithChildren } from '../with-children-type';
 import { BaseTheme } from './turkeydev-theme';
 
 export const WHITE = '#ffffff';
+export const CC_BLUE_DARK = '#00687D';
 export const CC_BLUE = '#009FBF';
 export const OFF_WHITE = '#d8d8d8';
 export const PRIMARY = '#343A40';
@@ -25,11 +26,11 @@ const lightTheme: BaseTheme = {
     },
     primary: {
         color: CC_BLUE,
-        on: WHITE
+        on: SECONDARY
     },
     secondary: {
         color: CC_BLUE,
-        on: WHITE
+        on: SECONDARY
     },
     error: {
         color: '#ba1b1b',
@@ -53,11 +54,11 @@ const darkTheme: BaseTheme = {
         onInverse: SECONDARY
     },
     primary: {
-        color: CC_BLUE,
+        color: CC_BLUE_DARK,
         on: WHITE
     },
     secondary: {
-        color: CC_BLUE,
+        color: CC_BLUE_DARK,
         on: WHITE
     },
     error: {
