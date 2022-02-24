@@ -17,7 +17,7 @@ const lightTheme: BaseTheme = {
         on: SECONDARY
     },
     surface: {
-        color: '#b8b2b2',
+        color: '#cdcdd3',
         on: SECONDARY,
         variant: '#dbe4e8',
         onVariant: '#40484b',
@@ -33,8 +33,8 @@ const lightTheme: BaseTheme = {
         on: SECONDARY
     },
     error: {
-        color: '#ba1b1b',
-        on: WHITE
+        color: '#ffb4a9',
+        on: '#680003'
     },
     outline: '#70797c',
 };
@@ -62,8 +62,8 @@ const darkTheme: BaseTheme = {
         on: WHITE
     },
     error: {
-        color: '#ffb4a9',
-        on: '#680003'
+        color: '#ba1b1b',
+        on: WHITE
     },
     outline: '#899295',
 };

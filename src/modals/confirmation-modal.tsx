@@ -1,4 +1,4 @@
-import { ContainedButton } from '../button';
+import { ContainedButton } from '../components/button';
 import { Modal } from './base-modal';
 
 type ConfirmationModalProps = {

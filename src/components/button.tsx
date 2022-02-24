@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { GLThemeProps } from './theme/turkeydev-theme';
-import { ButtonText } from './typography';
+import { GLThemeProps } from '../theme/turkeydev-theme';
+import { ButtonText } from '../typography';
 
 type ButtonCSS = {
     readonly hasIcon: boolean

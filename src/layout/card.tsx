@@ -1,6 +1,6 @@
 import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme } from '.';
-import { Elevation } from './constants/elevation';
+import { Elevation } from '../constants';
+import { BaseTheme } from '../theme';
 
 export const Card = styled.div`
     background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
