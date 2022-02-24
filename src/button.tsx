@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { GLThemeProps } from './theme/turkeydev-theme';
 import { ButtonText } from './typography';
-import { WithChildren } from './with-children-type';
 
 type ButtonCSS = {
     readonly hasIcon: boolean
@@ -32,11 +31,12 @@ const ButtonWrapper = styled.button<ButtonCSS>`
   }
 `;
 
-type ButtonProps = WithChildren & {
+type ButtonProps = {
     readonly variant: string
     readonly icon?: string
     readonly selected?: boolean
     readonly onClick: () => void
+    readonly children: string
 }
 
 //TODO: Remove bare div's
@@ -52,10 +52,11 @@ export const Button = ({ variant, icon, selected, onClick, children }: ButtonPro
 );
 
 
-type ButtonvariantProps = WithChildren & {
+type ButtonvariantProps = {
     readonly icon?: string
     readonly selected?: boolean
     readonly onClick: () => void
+    readonly children: string
 }
 
 export const ContainedButton = ({ icon, selected, onClick, children }: ButtonvariantProps) => (
