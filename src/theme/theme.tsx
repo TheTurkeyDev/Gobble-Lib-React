@@ -5,7 +5,7 @@ import { BaseTheme } from './turkeydev-theme';
 
 export const WHITE = '#ffffff';
 export const CC_BLUE = '#009FBF';
-export const OFF_WHITE = '#fcfcff';
+export const OFF_WHITE = '#d8d8d8';
 export const PRIMARY = '#343A40';
 export const SECONDARY = '#212529';
 

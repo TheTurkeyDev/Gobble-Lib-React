@@ -8,3 +8,4 @@ export * from './custom-hooks';
 export * from './toast';
 export * from './modals';
 export * from './pages';
+export * from './card';
