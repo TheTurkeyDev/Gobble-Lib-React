@@ -12,11 +12,11 @@ export const SECONDARY = '#212529';
 const lightTheme: BaseTheme = {
     isDarkTheme: false,
     background: {
-        color: WHITE,
+        color: '#e3e3e3',
         on: SECONDARY
     },
     surface: {
-        color: '#eeeeee',
+        color: '#b8b2b2',
         on: SECONDARY,
         variant: '#dbe4e8',
         onVariant: '#40484b',
