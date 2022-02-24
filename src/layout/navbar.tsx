@@ -34,8 +34,9 @@ export const CenterContent = styled.div`
     gap: 16px;
 `;
 
-type NavLinkProps = WithChildren & {
+type NavLinkProps = {
     readonly link: string
+    readonly children?: JSX.Element | readonly JSX.Element[] | string
 }
 
 export const NavLink = ({ link, children }: NavLinkProps) => {
