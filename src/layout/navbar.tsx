@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme, WithChildren } from '..';
+import { BaseTheme, WHITE, BLACK } from '../theme';
 
 export const NavBar = styled.nav`
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
@@ -13,7 +13,7 @@ export const NavBar = styled.nav`
 `;
 
 export const SiteName = styled(Link)`
-    color: #fff;
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.isDarkTheme ? WHITE : BLACK};
     text-decoration: none;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
@@ -22,7 +22,7 @@ export const SiteName = styled(Link)`
     white-space: nowrap;
 
     &:hover {
-        color: #fffc;
+        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.isDarkTheme ? WHITE : BLACK}c`};
         text-decoration: none;
     }
 `;

@@ -5,12 +5,13 @@ import { Caption } from '../typography';
 const HelperTextWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 48px auto;
+    grid-template-rows: auto auto;
+    gap: 4px;
     color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
 `;
 
 const Label = styled.label`
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
     position: absolute;
     font-size: 16px;
 `;
@@ -32,29 +33,29 @@ const StyledInput = styled.input`
     height: 32px;
     align-self: end;
     font-size: 16px;
+    padding-bottom: 4px;
 
-    &::placeholder {
+    &:not(:focus)&::placeholder {
         color: transparent;
     }
 
     &:placeholder-shown ~ ${Label} {
         cursor: text;
-        top: 20px;
+        top: 15px;
         font-size: 16px;
-        transition: font-size 0.2s;
-        transition: top 0.2s;
+        transition: top 0.2s, font-size 0.2s;
     }
 
     &:not(placeholder-shown) ~ ${Label}, &:focus ~ ${Label} {
         cursor: text;
         top: 5px;
         font-size: 12px;
-        transition: font-size 0.2s;
-        transition: top 0.2s;
+        transition: top 0.2s, font-size 0.2s;
     }
     
     &:focus ~ ${Label} {
         color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
+        transition: color 0.2s;
     }
 
     &:required, &:invalid {
@@ -63,10 +64,11 @@ const StyledInput = styled.input`
 `;
 
 const InputContainer = styled.div`
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on}0A;
+    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on}1A;
     padding: 0 12px 0 16px;
+    border-radius: 4px 4px 0 0;
     border-bottom: 2px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.outline};
-    height: 48px;
+    height: 56px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     transition: border-color 0.2s;
@@ -74,28 +76,33 @@ const InputContainer = styled.div`
     &:focus-within {
         border-bottom: 2px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
     }
+
+    &:hover&:not(:focus-within) {
+        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on}2A;
+    }
 `;
 
-type InputProps = {
-    readonly name: string
-    readonly label: string
+const HelperText = styled(Caption)`
+    padding-left: 16px;
+`;
+
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+    readonly label?: string
     readonly helperText?: string
-    readonly value: string
-    readonly onChange: (value: string) => void
 }
 
-export const Input = ({ name, label, helperText, value, onChange, ...props }: InputProps) => {
+export const Input = ({ id, label, helperText, ...props }: InputProps) => {
     return (
         <HelperTextWrapper>
             <InputContainer>
                 <Icon />
                 <InputWrapper>
-                    <StyledInput type='input' aria-label={`${name}-input`} placeholder={label} name={name} id={name} value={value} onChange={e => onChange(e.target.value)} {...props} />
-                    <Label htmlFor={name}>{label}</Label>
+                    <StyledInput type='input' aria-label={`${id}-input`} id={id} {...props} />
+                    <Label htmlFor={id}>{label}</Label>
                 </InputWrapper>
                 <Icon />
             </InputContainer>
-            <Caption>{helperText}</Caption>
+            <HelperText>{helperText}</HelperText>
         </HelperTextWrapper>
     );
 };

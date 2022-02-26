@@ -4,6 +4,7 @@ import { WithChildren } from '../with-children-type';
 import { BaseTheme } from './turkeydev-theme';
 
 export const WHITE = '#ffffff';
+export const BLACK = '#000000';
 export const CC_BLUE_DARK = '#00687D';
 export const CC_BLUE = '#009FBF';
 export const OFF_WHITE = '#d8d8d8';

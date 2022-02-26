@@ -6,7 +6,7 @@ export const BackgroundWrapper = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     z-index: 999;
