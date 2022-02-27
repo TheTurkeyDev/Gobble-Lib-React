@@ -8,25 +8,24 @@ export type BaseTheme = {
   },
   readonly surface: {
     readonly color: string,
-    readonly on: string,
-    readonly variant: string,
-    readonly onVariant: string,
-    readonly inverse: string,
-    readonly onInverse: string
-  },
-  readonly primary: {
-    readonly color: string,
     readonly on: string
   },
-  readonly secondary: {
+  readonly inputs: {
+    readonly color: string,
+    readonly colorDisabled: string,
+    readonly outlineRaised: string,
+    readonly outlineLowered: string,
+    readonly on: string,
+    readonly onVariant: string,
+  },
+  readonly primary: {
     readonly color: string,
     readonly on: string
   },
   readonly error: {
     readonly color: string,
     readonly on: string
-  },
-  readonly outline: string,
+  }
 }
 
 export type GLThemeProps<P> = ThemedStyledProps<P, BaseTheme>;

@@ -8,65 +8,64 @@ export const BLACK = '#000000';
 export const CC_BLUE_DARK = '#00687D';
 export const CC_BLUE = '#009FBF';
 export const OFF_WHITE = '#d8d8d8';
-export const PRIMARY = '#343A40';
-export const SECONDARY = '#212529';
+export const GRAY_BLUISH = '#343A40';
+export const DARK_GRAY_BLUISH = '#212529';
+export const LIGHT_GRAY_BLUISH = '#BFC8CC';
 
-const lightTheme: BaseTheme = {
+export const defaultLightTheme: BaseTheme = {
     isDarkTheme: false,
     background: {
         color: '#e3e3e3',
-        on: SECONDARY
+        on: DARK_GRAY_BLUISH
     },
     surface: {
         color: '#cdcdd3',
-        on: SECONDARY,
-        variant: '#dbe4e8',
-        onVariant: '#40484b',
-        inverse: '#2f3032',
-        onInverse: '#f0f0f3'
+        on: DARK_GRAY_BLUISH,
+    },
+    inputs: {
+        color: LIGHT_GRAY_BLUISH,
+        colorDisabled: OFF_WHITE,
+        outlineRaised: '#05050540',
+        outlineLowered: '#00000040',
+        on: DARK_GRAY_BLUISH,
+        onVariant: '#899295',
     },
     primary: {
         color: CC_BLUE,
-        on: SECONDARY
-    },
-    secondary: {
-        color: CC_BLUE,
-        on: SECONDARY
+        on: DARK_GRAY_BLUISH
     },
     error: {
         color: '#ffb4a9',
         on: '#680003'
     },
-    outline: '#70797c',
 };
 
-const darkTheme: BaseTheme = {
+export const defaultDarkTheme: BaseTheme = {
     isDarkTheme: true,
     background: {
-        color: SECONDARY,
+        color: GRAY_BLUISH,
         on: OFF_WHITE
     },
     surface: {
-        color: PRIMARY,
+        color: DARK_GRAY_BLUISH,
         on: OFF_WHITE,
-        variant: '#40484b',
-        onVariant: '#bfc8cc',
-        inverse: OFF_WHITE,
-        onInverse: SECONDARY
+    },
+    inputs: {
+        color: DARK_GRAY_BLUISH,
+        colorDisabled: '#40484B',
+        outlineRaised: '#FFFFFF40',
+        outlineLowered: '#00000040',
+        on: WHITE,
+        onVariant: '#899295',
     },
     primary: {
-        color: CC_BLUE_DARK,
-        on: WHITE
-    },
-    secondary: {
         color: CC_BLUE_DARK,
         on: WHITE
     },
     error: {
         color: '#ba1b1b',
         on: WHITE
-    },
-    outline: '#899295',
+    }
 };
 
 type ThemeContextType = {
@@ -86,7 +85,13 @@ export const useThemeContext = () => {
 
 const darkModeKey = 'darkMode';
 
-export const ThemeContextProvider = ({ children }: WithChildren) => {
+type ThemeContextProviderProps = WithChildren & {
+    readonly themes?: readonly { readonly name: string, readonly theme: BaseTheme }[]
+}
+
+const defaultThemes = ['dark', 'light'];
+
+export const ThemeContextProvider = ({ children, themes }: ThemeContextProviderProps) => {
     const darkModeLocalStorage = localStorage.getItem(darkModeKey) ?? (window.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? 'dark' : 'light');
     const [theme, setCurrentTheme] = useState<string>(darkModeLocalStorage);
 
@@ -95,9 +100,13 @@ export const ThemeContextProvider = ({ children }: WithChildren) => {
         setCurrentTheme(newTheme);
     };
 
+    const darkThemeToUse = themes?.find(t => t.name === 'dark') ?? defaultDarkTheme;
+    const lightThemeToUse = themes?.find(t => t.name === 'light') ?? defaultLightTheme;
+    const themeMap = [...(themes?.filter(t => !defaultThemes.includes(t.name)) ?? []), { name: 'dark', theme: darkThemeToUse }, { name: 'light', theme: lightThemeToUse }];
+
     return (
         <ThemeContext.Provider value={{ setTheme, theme }}>
-            <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+            <ThemeProvider theme={themeMap.find(t => t.name === theme) ?? defaultDarkTheme}>
                 {children}
             </ThemeProvider>
         </ThemeContext.Provider >
