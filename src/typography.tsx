@@ -47,13 +47,15 @@ export const Headline5 = styled.h5`
   letter-spacing: 0;
 `;
 
-
-export const Headline6 = styled.h6`
+export const Headline6Css = css`
   ${typographyBase}
   font-weight: 500;
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 0.15%;
+`;
+export const Headline6 = styled.h6`
+  ${Headline6Css}
 `;
 
 export const Subtitle1Css = css`

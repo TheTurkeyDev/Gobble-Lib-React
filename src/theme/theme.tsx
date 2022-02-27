@@ -26,7 +26,7 @@ export const defaultLightTheme: BaseTheme = {
         color: LIGHT_GRAY_BLUISH,
         colorDisabled: OFF_WHITE,
         outlineRaised: '#05050540',
-        outlineLowered: '#00000040',
+        outlineLowered: '#00000099',
         on: DARK_GRAY_BLUISH,
         onVariant: '#899295',
     },

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme, WHITE, BLACK } from '../theme';
+import { Headline6Css, Subtitle1Css } from '../typography';
 
 export const NavBar = styled.nav`
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
@@ -10,19 +11,19 @@ export const NavBar = styled.nav`
     grid-template-columns: auto 1fr auto;
     gap: 32px;
     align-items: center;
+    transition: background-color 0.2s, color 0.2s;
 `;
 
 export const SiteName = styled(Link)`
+    ${Headline6Css}
     color: ${({ theme }: ThemeProps<BaseTheme>) => theme.isDarkTheme ? WHITE : BLACK};
     text-decoration: none;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
-    font-size: 1.25rem;
-    line-height: inherit;
     white-space: nowrap;
 
     &:hover {
-        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.isDarkTheme ? WHITE : BLACK}c`};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.isDarkTheme ? WHITE : BLACK}c0`};
         text-decoration: none;
     }
 `;
@@ -46,6 +47,7 @@ export const NavLink = ({ link, children }: NavLinkProps) => {
 };
 
 const NavLinkLink = styled(Link)`
+    ${Subtitle1Css}
     padding: 0;
     color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
     text-decoration: none;
@@ -57,6 +59,7 @@ const NavLinkLink = styled(Link)`
 `;
 
 const NavLinkA = styled.a`
+    ${Subtitle1Css}
     padding: 0;
     color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
     text-decoration: none;
