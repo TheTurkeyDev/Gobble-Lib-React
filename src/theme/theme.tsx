@@ -106,7 +106,7 @@ export const ThemeContextProvider = ({ children, themes }: ThemeContextProviderP
 
     return (
         <ThemeContext.Provider value={{ setTheme, theme }}>
-            <ThemeProvider theme={themeMap.find(t => t.name === theme) ?? defaultDarkTheme}>
+            <ThemeProvider theme={themeMap.find(t => t.name === theme)?.theme ?? defaultDarkTheme}>
                 {children}
             </ThemeProvider>
         </ThemeContext.Provider >
