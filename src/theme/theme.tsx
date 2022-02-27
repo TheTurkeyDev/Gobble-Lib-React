@@ -100,8 +100,8 @@ export const ThemeContextProvider = ({ children, themes }: ThemeContextProviderP
         setCurrentTheme(newTheme);
     };
 
-    const darkThemeToUse = themes?.find(t => t.name === 'dark') ?? defaultDarkTheme;
-    const lightThemeToUse = themes?.find(t => t.name === 'light') ?? defaultLightTheme;
+    const darkThemeToUse = themes?.find(t => t.name === 'dark')?.theme ?? defaultDarkTheme;
+    const lightThemeToUse = themes?.find(t => t.name === 'light')?.theme ?? defaultLightTheme;
     const themeMap = [...(themes?.filter(t => !defaultThemes.includes(t.name)) ?? []), { name: 'dark', theme: darkThemeToUse }, { name: 'light', theme: lightThemeToUse }];
 
     return (

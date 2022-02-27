@@ -102,6 +102,7 @@ export const Caption = styled.span`
 
 export const ButtonText = styled.span`
   margin: 0;
+  font-family: Ubuntu;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
