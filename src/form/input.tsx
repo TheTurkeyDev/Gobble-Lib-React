@@ -27,7 +27,7 @@ const InputContainer = styled.div`
     color:  ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onVariant};
     padding: 0 12px 0 16px;
     border-radius: 4px;
-    border: 1px solid #00000040;
+    border: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.outlineLowered};
     height: 36px;
     display: grid;
     grid-template-columns: auto 1fr auto;

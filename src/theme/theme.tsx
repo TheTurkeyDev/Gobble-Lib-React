@@ -10,7 +10,7 @@ export const CC_BLUE = '#009FBF';
 export const OFF_WHITE = '#d8d8d8';
 export const GRAY_BLUISH = '#343A40';
 export const DARK_GRAY_BLUISH = '#212529';
-export const LIGHT_GRAY_BLUISH = '#BFC8CC';
+export const LIGHT_GRAY_BLUISH = '#c7cace';
 
 export const defaultLightTheme: BaseTheme = {
     isDarkTheme: false,
@@ -43,18 +43,18 @@ export const defaultLightTheme: BaseTheme = {
 export const defaultDarkTheme: BaseTheme = {
     isDarkTheme: true,
     background: {
-        color: GRAY_BLUISH,
+        color: DARK_GRAY_BLUISH,
         on: OFF_WHITE
     },
     surface: {
-        color: DARK_GRAY_BLUISH,
+        color: GRAY_BLUISH,
         on: OFF_WHITE,
     },
     inputs: {
-        color: DARK_GRAY_BLUISH,
-        colorDisabled: '#40484B',
-        outlineRaised: '#FFFFFF40',
-        outlineLowered: '#00000040',
+        color: GRAY_BLUISH,
+        colorDisabled: '#61696C',
+        outlineRaised: '#ffffff65',
+        outlineLowered: '#00000099',
         on: WHITE,
         onVariant: '#899295',
     },
