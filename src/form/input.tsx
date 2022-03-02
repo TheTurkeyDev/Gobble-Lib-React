@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme } from '../theme';
 import { Subtitle1Css } from '../typography';
@@ -45,12 +46,12 @@ const InputContainer = styled.div`
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 }
 
-export const Input = ({ id, ...props }: InputProps) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
     return (
         <InputContainer>
             <Icon />
-            <StyledInput type='input' aria-label={`${id}-input`} id={id} {...props} />
+            <StyledInput type='input' aria-label={`${id}-input`} id={id} ref={ref} {...props} />
             <Icon />
         </InputContainer>
     );
-};
+});

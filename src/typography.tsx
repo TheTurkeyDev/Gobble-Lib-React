@@ -102,7 +102,7 @@ export const Caption = styled.span`
   letter-spacing: 0.4%;
 `;
 
-export const ButtonText = styled.span`
+export const ButtonTextCss = css`
   margin: 0;
   font-family: Ubuntu;
   font-weight: 500;
@@ -110,6 +110,9 @@ export const ButtonText = styled.span`
   line-height: 20px;
   letter-spacing: 1.25%;
   text-transform: uppercase;
+`;
+export const ButtonText = styled.span`
+  ${ButtonTextCss}
 `;
 
 export const Overline = styled.span`
