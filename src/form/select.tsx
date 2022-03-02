@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProps } from 'styled-components';
-import { Label } from '.';
 import { BaseTheme } from '../theme/turkeydev-theme';
+import { Label } from './label';
 
 const SelectWrapper = styled.select`
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.color};
