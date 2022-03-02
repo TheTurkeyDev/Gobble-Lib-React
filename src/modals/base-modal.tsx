@@ -1,4 +1,6 @@
+import { createRef } from 'react';
 import styled, { ThemeProps } from 'styled-components';
+import { useClickOutside } from '../custom-hooks/use-click-outside';
 import { BaseTheme } from '../theme/turkeydev-theme';
 import { WithChildren } from '../with-children-type';
 
@@ -26,12 +28,15 @@ export const ModalContent = styled.div`
 
 type ModalProps = WithChildren & {
     readonly show: boolean
+    readonly requestClose?: () => void
 }
 
-export const Modal = ({ show, children }: ModalProps) => {
+export const Modal = ({ show, requestClose, children }: ModalProps) => {
+    const ref = createRef<HTMLDivElement>();
+    useClickOutside(ref, () => !!requestClose && requestClose());
     return show ? (
         <BackgroundWrapper>
-            <ModalContent>
+            <ModalContent ref={ref}>
                 {children}
             </ModalContent>
         </BackgroundWrapper>
