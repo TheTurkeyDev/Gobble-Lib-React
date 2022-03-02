@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme, GLThemeProps } from '../theme/turkeydev-theme';
-import { ButtonText, ButtonTextCss } from '../typography';
+import { BaseTheme } from '../theme/turkeydev-theme';
+import { ButtonTextCss } from '../typography';
 
 export const LinkButton = styled(Link)`
     ${ButtonTextCss}
