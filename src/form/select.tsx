@@ -29,12 +29,14 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             style,
             className,
             disabled,
+            onChange,
             ...props
         }: SelectProps,
         ref: React.Ref<HTMLSelectElement>,
     ): JSX.Element => (
         <SelectWrapper
             value={value}
+            onChange={onChange}
             {...props}
             ref={ref}
         />
