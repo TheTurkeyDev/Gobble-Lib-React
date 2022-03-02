@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme } from '../theme';
 import { Subtitle1Css } from '../typography';
+import { Label } from './label';
 
 const Icon = styled.div`
 `;
@@ -44,14 +45,18 @@ const InputContainer = styled.div`
 `;
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+    readonly label?: string
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
     return (
-        <InputContainer>
-            <Icon />
-            <StyledInput type='input' aria-label={`${id}-input`} id={id} ref={ref} {...props} />
-            <Icon />
-        </InputContainer>
+        <>
+            {label && <Label htmlFor={id}>{label}</Label>}
+            <InputContainer>
+                <Icon />
+                <StyledInput type='input' aria-label={`${id}-input`} id={id} ref={ref} {...props} />
+                <Icon />
+            </InputContainer>
+        </>
     );
 });

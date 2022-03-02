@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { ThemeProps } from 'styled-components';
+import { Label } from '.';
 import { BaseTheme } from '../theme/turkeydev-theme';
 
 const SelectWrapper = styled.select`
@@ -19,26 +20,31 @@ const SelectWrapper = styled.select`
 `;
 
 type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {
-
+    readonly label?: string
 }
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     (
         {
+            id,
             value,
             style,
             className,
             disabled,
             onChange,
+            label,
             ...props
         }: SelectProps,
         ref: React.Ref<HTMLSelectElement>,
     ): JSX.Element => (
-        <SelectWrapper
-            value={value}
-            onChange={onChange}
-            {...props}
-            ref={ref}
-        />
+        <>
+            {label && <Label htmlFor={id}>{label}</Label>}
+            <SelectWrapper
+                value={value}
+                onChange={onChange}
+                {...props}
+                ref={ref}
+            />
+        </>
     ),
 );
