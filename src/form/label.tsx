@@ -1,4 +1,6 @@
 import styled from 'styled-components';
-import { Subtitle1 } from '../typography';
+import { Subtitle1Css } from '../typography';
 
-export const Label = styled(Subtitle1)``;
+export const Label = styled.label`
+    ${Subtitle1Css}
+`;
