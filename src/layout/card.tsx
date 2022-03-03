@@ -9,7 +9,7 @@ export const Card = styled.div`
     display: grid;
     grid-auto-rows: auto;
     gap: 16px;
-    box-shadow: ${Elevation.lowest};
+    box-shadow: ${Elevation.low};
 `;
 
 export const CardHeader = styled.div`
