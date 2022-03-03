@@ -15,16 +15,16 @@ export const LIGHT_GRAY_BLUISH = '#c7cace';
 export const defaultLightTheme: BaseTheme = {
     isDarkTheme: false,
     background: {
-        color: '#e3e3e3',
-        on: DARK_GRAY_BLUISH
+        color: '#e8e8e8',
+        on: GRAY_BLUISH
     },
     navbar: {
-        color: '#cdcdd3',
-        on: DARK_GRAY_BLUISH,
+        color: '#fcfcfc',
+        on: GRAY_BLUISH,
     },
     surface: {
-        color: '#cdcdd3',
-        on: DARK_GRAY_BLUISH,
+        color: '#fcfcfc',
+        on: GRAY_BLUISH,
     },
     inputs: {
         color: LIGHT_GRAY_BLUISH,
@@ -71,8 +71,8 @@ export const defaultDarkTheme: BaseTheme = {
         on: WHITE
     },
     error: {
-        color: '#ba1b1b',
-        on: WHITE
+        color: '#ffb4a9',
+        on: '#680003'
     }
 };
 
