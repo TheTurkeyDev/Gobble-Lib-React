@@ -1,7 +1,7 @@
 
 import styled, { ThemeProps } from 'styled-components';
-import { Label } from '.';
 import { BaseTheme } from '../theme';
+import { Label } from './label';
 
 
 const Switch = styled.label`

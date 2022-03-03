@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { css, ThemeProps } from 'styled-components';
-import { Subtitle1 } from '..';
 import { BaseTheme, WHITE, BLACK } from '../theme';
-import { Headline6Css, Subtitle1Css } from '../typography';
+import { Headline6Css, Subtitle1, Subtitle1Css } from '../typography';
 
 export const NavBar = styled.nav`
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.color};
