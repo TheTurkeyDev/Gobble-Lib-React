@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import styled, { ThemeProps } from 'styled-components';
+import styled, { css, ThemeProps } from 'styled-components';
+import { Subtitle1 } from '..';
 import { BaseTheme, WHITE, BLACK } from '../theme';
 import { Headline6Css, Subtitle1Css } from '../typography';
 
 export const NavBar = styled.nav`
-    background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+    background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.color};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
     padding: 8px 12px;
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -46,26 +47,26 @@ export const NavLink = ({ link, children }: NavLinkProps) => {
         <NavLinkLink to={link} > {children} </NavLinkLink>;
 };
 
-const NavLinkLink = styled(Link)`
+const NavLinkCss = css`
     ${Subtitle1Css}
     padding: 0;
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
     text-decoration: none;
 
     &:hover {
-        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.surface.on}aa`};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.navbar.on}aa`};
         text-decoration: none;
     }
 `;
 
-const NavLinkA = styled.a`
-    ${Subtitle1Css}
-    padding: 0;
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
-    text-decoration: none;
+const NavLinkLink = styled(Link)`
+    ${NavLinkCss}
+`;
 
-    &:hover {
-        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.surface.on}aa`};
-        text-decoration: none;
-    }
+const NavLinkA = styled.a`
+    ${NavLinkCss}
+`;
+
+export const NavText = styled(Subtitle1)`
+    ${NavLinkCss}
 `;

@@ -18,6 +18,10 @@ export const defaultLightTheme: BaseTheme = {
         color: '#e3e3e3',
         on: DARK_GRAY_BLUISH
     },
+    navbar: {
+        color: '#cdcdd3',
+        on: DARK_GRAY_BLUISH,
+    },
     surface: {
         color: '#cdcdd3',
         on: DARK_GRAY_BLUISH,
@@ -45,6 +49,10 @@ export const defaultDarkTheme: BaseTheme = {
     background: {
         color: DARK_GRAY_BLUISH,
         on: OFF_WHITE
+    },
+    navbar: {
+        color: GRAY_BLUISH,
+        on: OFF_WHITE,
     },
     surface: {
         color: GRAY_BLUISH,

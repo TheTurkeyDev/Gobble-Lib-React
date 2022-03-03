@@ -6,6 +6,10 @@ export type BaseTheme = {
     readonly color: string,
     readonly on: string
   },
+  readonly navbar: {
+    readonly color: string,
+    readonly on: string
+  },
   readonly surface: {
     readonly color: string,
     readonly on: string
