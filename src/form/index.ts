@@ -4,3 +4,4 @@ export * from './select';
 export * from './label';
 export * from './inputs-wrapper';
 export * from './toggle-switch';
+export * from './text-area';

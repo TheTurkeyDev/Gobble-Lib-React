@@ -71,8 +71,8 @@ export const defaultDarkTheme: BaseTheme = {
         on: WHITE
     },
     error: {
-        color: '#ffb4a9',
-        on: '#680003'
+        color: '#ba1b1b',
+        on: WHITE
     }
 };
 
