@@ -1,10 +1,13 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
+import { WithChildren } from '..';
 import { GLThemeProps } from '../theme/turkeydev-theme';
 import { ButtonText } from '../typography';
 
 type ButtonCSS = {
     readonly hasIcon: boolean
     readonly variant: string
+    readonly disabled?: boolean
 }
 
 const ButtonWrapper = styled.button<ButtonCSS>`
@@ -31,17 +34,15 @@ const ButtonWrapper = styled.button<ButtonCSS>`
   }
 `;
 
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     readonly variant: string
     readonly icon?: string
     readonly selected?: boolean
-    readonly onClick: () => void
-    readonly children: string
 }
 
 //TODO: Remove bare div's
-export const Button = ({ variant, icon, selected, onClick, children }: ButtonProps) => (
-    <ButtonWrapper variant={variant} hasIcon={!!icon} onClick={onClick}>
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, icon, children, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
+    <ButtonWrapper ref={ref} variant={variant} hasIcon={!!icon} {...props}>
         <div>
             {icon}
         </div>
@@ -49,24 +50,22 @@ export const Button = ({ variant, icon, selected, onClick, children }: ButtonPro
             {children}
         </ButtonText>
     </ButtonWrapper>
-);
+));
 
 
-type ButtonvariantProps = {
+type ButtonvariantProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     readonly icon?: string
     readonly selected?: boolean
-    readonly onClick: () => void
-    readonly children: string
 }
 
-export const ContainedButton = ({ icon, selected, onClick, children }: ButtonvariantProps) => (
-    <Button variant='contained' icon={icon} selected={selected} onClick={onClick} children={children} />
+export const ContainedButton = (props: ButtonvariantProps) => (
+    <Button variant='contained' {...props} />
 );
 
-export const OutlinedButton = ({ icon, selected, onClick, children }: ButtonvariantProps) => (
-    <Button variant='outlined' icon={icon} selected={selected} onClick={onClick} children={children} />
+export const OutlinedButton = (props: ButtonvariantProps) => (
+    <Button variant='outlined' {...props} />
 );
 
-export const TextButton = ({ icon, selected, onClick, children }: ButtonvariantProps) => (
-    <Button variant='text' icon={icon} selected={selected} onClick={onClick} children={children} />
+export const TextButton = (props: ButtonvariantProps) => (
+    <Button variant='text'{...props} />
 );
