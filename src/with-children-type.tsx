@@ -1,4 +1,5 @@
+import { ReactChild } from 'react';
 
 export type WithChildren = {
-    readonly children?: JSX.Element | readonly JSX.Element[]
+    readonly children?: ReactChild | readonly ReactChild[]
 }

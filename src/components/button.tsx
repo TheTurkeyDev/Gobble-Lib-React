@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import { WithChildren } from '..';
 import { GLThemeProps } from '../theme/turkeydev-theme';
 import { ButtonText } from '../typography';
 
