@@ -18,8 +18,8 @@ export const BackgroundWrapper = styled.div`
 `;
 
 export const ModalContent = styled.div`
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.background.color};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.background.on};
     box-shadow: -2rem 2rem 2rem rgba(0,0,0, 0.2);
     filter: blur(0);
     border-radius: 15px;
