@@ -35,8 +35,8 @@ export const defaultLightTheme: BaseTheme = {
         onVariant: '#899295',
     },
     primary: {
-        color: CC_BLUE,
-        on: DARK_GRAY_BLUISH
+        color: CC_BLUE_DARK,
+        on: WHITE
     },
     error: {
         color: '#ffb4a9',
@@ -67,8 +67,8 @@ export const defaultDarkTheme: BaseTheme = {
         onVariant: '#899295',
     },
     primary: {
-        color: CC_BLUE_DARK,
-        on: WHITE
+        color: CC_BLUE,
+        on: DARK_GRAY_BLUISH
     },
     error: {
         color: '#ba1b1b',
