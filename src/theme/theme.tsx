@@ -15,7 +15,7 @@ export const LIGHT_GRAY = '#f1f1f1';
 export const defaultLightTheme: BaseTheme = {
     isDarkTheme: false,
     background: {
-        color: '#e8e8e8',
+        color: '#E5E5E5',
         on: GRAY_BLUISH
     },
     navbar: {
@@ -27,7 +27,7 @@ export const defaultLightTheme: BaseTheme = {
         on: GRAY_BLUISH,
     },
     inputs: {
-        color: LIGHT_GRAY,
+        color: '#BFC8CC',
         colorDisabled: OFF_WHITE,
         outlineRaised: '#05050540',
         outlineLowered: '#00000099',
