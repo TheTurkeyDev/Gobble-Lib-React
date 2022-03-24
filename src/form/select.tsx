@@ -1,9 +1,11 @@
 import React from 'react';
 import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme } from '../theme/turkeydev-theme';
+import { Subtitle1Css } from '../typography';
 import { Label } from './label';
 
 const SelectWrapper = styled.select`
+    ${Subtitle1Css}
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.color};
     color:  ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.on};
     padding: 0 12px 0 16px;
@@ -48,3 +50,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         </>
     ),
 );
+
+export const Option = styled.option`
+    ${Subtitle1Css}
+`;
