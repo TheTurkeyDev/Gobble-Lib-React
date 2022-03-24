@@ -62,7 +62,7 @@ export const defaultDarkTheme: BaseTheme = {
         color: GRAY_BLUISH,
         colorDisabled: '#61696C',
         outlineRaised: '#ffffff65',
-        outlineLowered: '#00000099',
+        outlineLowered: '#00000044',
         on: WHITE,
         onVariant: '#899295',
     },

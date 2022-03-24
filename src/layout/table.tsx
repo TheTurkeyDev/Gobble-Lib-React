@@ -7,6 +7,7 @@ export const Table = styled.table`
     color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
     width: 100%;
     height: 100%;
+    border-spacing: 0;
 
     & th {
         border-top: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
