@@ -6,7 +6,7 @@ import { ButtonText } from '../typography';
 
 type ButtonCSS = {
     readonly hasIcon: boolean
-    readonly variant: string
+    readonly variant: 'contained' | 'outlined' | 'text'
     readonly disabled?: boolean
 }
 
@@ -35,7 +35,7 @@ const ButtonWrapper = styled.button<ButtonCSS>`
 `;
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    readonly variant: string
+    readonly variant: 'contained' | 'outlined' | 'text'
     readonly icon?: string
     readonly selected?: boolean
 }

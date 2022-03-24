@@ -24,6 +24,8 @@ export const ModalContent = styled.div`
     filter: blur(0);
     border-radius: 15px;
     padding: 16px;
+    max-width: 75%;
+    margin-inline: auto;
 `;
 
 type ModalProps = WithChildren & {

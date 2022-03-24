@@ -78,12 +78,16 @@ export const Subtitle2 = styled.h6`
   letter-spacing: 0.1%;
 `;
 
-export const Body1 = styled.span`
+export const Body1Css = css`
   ${typographyBase}
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5%;
+`;
+
+export const Body1 = styled.span`
+  ${Body1Css}
 `;
 
 export const Body2 = styled.span`
