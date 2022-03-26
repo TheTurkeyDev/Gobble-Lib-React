@@ -3,3 +3,4 @@ export * from './navbar';
 export * from './space-between';
 export * from './table';
 export * from './button-row';
+export * from './project-tiles-list';
