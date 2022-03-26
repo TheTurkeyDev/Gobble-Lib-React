@@ -3,8 +3,6 @@ import { BaseTheme } from '../theme/turkeydev-theme';
 import { Body1Css, Subtitle1Css } from '../typography';
 
 export const Table = styled.table`
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
     width: 100%;
     height: 100%;
     border-spacing: 0;
