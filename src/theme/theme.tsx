@@ -14,6 +14,7 @@ export const LIGHT_GRAY = '#f1f1f1';
 
 export const defaultLightTheme: BaseTheme = {
     isDarkTheme: false,
+    fontFamily: 'Ubuntu',
     background: {
         color: '#E5E5E5',
         on: GRAY_BLUISH
@@ -46,6 +47,7 @@ export const defaultLightTheme: BaseTheme = {
 
 export const defaultDarkTheme: BaseTheme = {
     isDarkTheme: true,
+    fontFamily: 'Ubuntu',
     background: {
         color: DARK_GRAY_BLUISH,
         on: OFF_WHITE

@@ -4,7 +4,7 @@ import { BaseTheme } from './theme/turkeydev-theme';
 const typographyBase = css`
   margin: 0;
   color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
-  font-family: Ubuntu;
+  font-family: ${({ theme }: ThemeProps<BaseTheme>) => theme.fontFamily};
 `;
 
 export const Headline1 = styled.h1`
@@ -108,7 +108,7 @@ export const Caption = styled.span`
 
 export const ButtonTextCss = css`
   margin: 0;
-  font-family: Ubuntu;
+  font-family: ${({ theme }: ThemeProps<BaseTheme>) => theme.fontFamily};
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
