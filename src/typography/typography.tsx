@@ -1,5 +1,6 @@
 import styled, { css, ThemeProps } from 'styled-components';
-import { BaseTheme } from './theme/turkeydev-theme';
+import { FontWeight } from '../constants';
+import { BaseTheme } from '../theme/turkeydev-theme';
 
 const typographyBase = css`
   margin: 0;
@@ -9,7 +10,7 @@ const typographyBase = css`
 
 export const Headline1 = styled.h1`
   ${typographyBase}
-  font-weight: 300;
+  font-weight: ${FontWeight.LIGHT};
   font-size: 96px;
   line-height: 100px;
   letter-spacing: -1.5%;
@@ -17,7 +18,7 @@ export const Headline1 = styled.h1`
 
 export const Headline2 = styled.h2`
   ${typographyBase}
-  font-weight: 300;
+  font-weight: ${FontWeight.LIGHT};
   font-size: 60px;
   line-height: 68px;
   letter-spacing: -0.5%;
@@ -25,7 +26,7 @@ export const Headline2 = styled.h2`
 
 export const Headline3 = styled.h3`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 48px;
   line-height: 56px;
   letter-spacing: 0;
@@ -33,7 +34,7 @@ export const Headline3 = styled.h3`
 
 export const Headline4 = styled.h4`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 34px;
   line-height: 42px;
   letter-spacing: .25%;
@@ -41,7 +42,7 @@ export const Headline4 = styled.h4`
 
 export const Headline5 = styled.h5`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0;
@@ -49,7 +50,7 @@ export const Headline5 = styled.h5`
 
 export const Headline6Css = css`
   ${typographyBase}
-  font-weight: 500;
+  font-weight: ${FontWeight.MEDIUM};
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 0.15%;
@@ -60,7 +61,7 @@ export const Headline6 = styled.h6`
 
 export const Subtitle1Css = css`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.15%;
@@ -72,7 +73,7 @@ export const Subtitle1 = styled.h6`
 
 export const Subtitle2 = styled.h6`
   ${typographyBase}
-  font-weight: 500;
+  font-weight: ${FontWeight.MEDIUM};
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.1%;
@@ -80,7 +81,7 @@ export const Subtitle2 = styled.h6`
 
 export const Body1Css = css`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5%;
@@ -92,7 +93,7 @@ export const Body1 = styled.span`
 
 export const Body2 = styled.span`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.25%;
@@ -100,7 +101,7 @@ export const Body2 = styled.span`
 
 export const Caption = styled.span`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.4%;
@@ -109,7 +110,7 @@ export const Caption = styled.span`
 export const ButtonTextCss = css`
   margin: 0;
   font-family: ${({ theme }: ThemeProps<BaseTheme>) => theme.fontFamily};
-  font-weight: 500;
+  font-weight: ${FontWeight.MEDIUM};
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 1.25%;
@@ -121,7 +122,7 @@ export const ButtonText = styled.span`
 
 export const Overline = styled.span`
   ${typographyBase}
-  font-weight: 400;
+  font-weight: ${FontWeight.NORMAL};
   font-size: 10px;
   line-height: 14px;
   letter-spacing: 0.5%;

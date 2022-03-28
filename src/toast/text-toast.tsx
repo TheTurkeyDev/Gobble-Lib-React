@@ -1,4 +1,4 @@
-import { Body2 } from '../typography';
+import { Body2 } from '../typography/typography';
 
 type TextToastProps = {
     readonly text: string

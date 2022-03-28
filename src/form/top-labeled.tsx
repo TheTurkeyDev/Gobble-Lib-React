@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Subtitle2 } from '../typography';
+import { Subtitle2 } from '../typography/typography';
 import { WithChildren } from '../with-children-type';
 
 const Wrapper = styled.div`

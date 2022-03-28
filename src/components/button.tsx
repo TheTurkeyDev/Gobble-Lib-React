@@ -1,8 +1,7 @@
 import { forwardRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { GLThemeProps } from '../theme/turkeydev-theme';
-import { ButtonText } from '../typography';
+import { ButtonText } from '../typography/typography';
 
 type ButtonCSS = {
     readonly hasIcon: boolean
@@ -69,12 +68,3 @@ export const OutlinedButton = (props: ButtonvariantProps) => (
 export const TextButton = (props: ButtonvariantProps) => (
     <Button variant='text'{...props} />
 );
-
-type LinkTextButtonProps = ButtonvariantProps & {
-    readonly to: string
-}
-
-export const LinkTextButton = (props: LinkTextButtonProps) => {
-    const navigate = useNavigate();
-    return <Button variant='text'{...props} onClick={() => navigate(props.to)} />;
-};

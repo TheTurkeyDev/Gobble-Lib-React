@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme } from '../theme';
-import { Subtitle1Css } from '../typography';
+import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
 
 const Icon = styled.div`

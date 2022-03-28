@@ -1,4 +1,4 @@
-import { Body1 } from '../typography';
+import { Body1 } from '../typography/typography';
 import { DualOptionModal } from './dual-option-modal';
 
 type ConfirmationModalProps = {

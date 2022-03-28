@@ -1,4 +1,4 @@
-import { Headline1, Headline4 } from '../typography';
+import { Headline1, Headline4 } from '../typography/typography';
 
 export const NotFound = () => {
     return (

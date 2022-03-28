@@ -1,6 +1,6 @@
 import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme } from '../theme/turkeydev-theme';
-import { Body1Css, Subtitle1Css } from '../typography';
+import { Body1Css, Subtitle1Css } from '../typography/typography';
 
 export const Table = styled.table`
     width: 100%;

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
-import { Headline6, Subtitle2 } from '../typography';
+import styled, { keyframes, ThemeProps } from 'styled-components';
+import { BaseTheme } from '../theme';
+import { Headline6, Subtitle2 } from '../typography/typography';
 
 const SlideInFromBot = keyframes`
     0% {
@@ -18,8 +19,10 @@ const SlideInFromBot = keyframes`
 
 type ProjectWrapperProps = {
     readonly size: number
+    readonly backgroundColor?: string
 };
 const ProjectWrapper = styled.div<ProjectWrapperProps>`
+    background-color: ${({ backgroundColor }) => backgroundColor ?? ''};
     width: ${({ size }) => size + 10}px;
     min-width: ${({ size }) => size + 10}px;
     max-width: ${({ size }) => size + 10}px;
@@ -34,7 +37,11 @@ const ProjectWrapper = styled.div<ProjectWrapperProps>`
     }
 `;
 
-const ProjectName = styled.div`
+type ProjectNameProps = {
+    readonly backgroundColor?: string
+};
+const ProjectName = styled.div<ProjectNameProps>`
+    background-color: ${({ backgroundColor }) => backgroundColor ?? ''};
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -61,15 +68,23 @@ const ProjectImage = styled.img`
     }
 `;
 
+const IconWrapper = styled.i`
+    margin-top: 8px;
+    font-size: 128px;
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
+`;
+
 type ProjectTileProps = {
     readonly link: string
     readonly image: string
     readonly title: string
     readonly subtitle: string
     readonly size?: number
+    readonly backgroundColor?: string
+    readonly textBackgroundColor?: string
 }
 
-export const ProjectTile = ({ link, image, title, subtitle, size }: ProjectTileProps) => {
+export const ProjectTile = ({ link, image, title, subtitle, size, backgroundColor, textBackgroundColor }: ProjectTileProps) => {
     const navigate = useNavigate();
 
     const onClick = () => {
@@ -82,9 +97,13 @@ export const ProjectTile = ({ link, image, title, subtitle, size }: ProjectTileP
     const sizeToUse = size ?? 190;
 
     return (
-        <ProjectWrapper onClick={onClick} size={sizeToUse}>
-            <ProjectImage loading='lazy' src={image} width={sizeToUse} height={sizeToUse} />
-            <ProjectName>
+        <ProjectWrapper onClick={onClick} size={sizeToUse} backgroundColor={backgroundColor}>
+            {
+                image.startsWith('http') ?
+                    <ProjectImage loading='lazy' src={image} width={sizeToUse} height={sizeToUse} /> :
+                    <IconWrapper className={image} />
+            }
+            <ProjectName backgroundColor={textBackgroundColor}>
                 <Headline6>{title}</Headline6>
                 <Subtitle2>{subtitle}</Subtitle2>
             </ProjectName>

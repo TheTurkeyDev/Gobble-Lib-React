@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme } from '../theme/turkeydev-theme';
-import { Subtitle1Css } from '../typography';
+import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
 
 const SelectWrapper = styled.select`
