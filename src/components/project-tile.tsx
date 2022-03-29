@@ -98,11 +98,7 @@ export const ProjectTile = ({ link, image, title, subtitle, size, backgroundColo
 
     return (
         <ProjectWrapper onClick={onClick} size={sizeToUse} backgroundColor={backgroundColor}>
-            {
-                image.startsWith('http') ?
-                    <ProjectImage loading='lazy' src={image} width={sizeToUse} height={sizeToUse} /> :
-                    <IconWrapper className={image} />
-            }
+            <ProjectImage loading='lazy' src={image} width={sizeToUse} height={sizeToUse} />
             <ProjectName backgroundColor={textBackgroundColor}>
                 <Headline6>{title}</Headline6>
                 <Subtitle2>{subtitle}</Subtitle2>
