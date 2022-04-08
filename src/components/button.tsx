@@ -18,8 +18,8 @@ const ButtonWrapper = styled.button<ButtonCSS>`
   gap: ${({ hasIcon }) => hasIcon ? '8px' : 0};
   padding: 8px 16px;
   background: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.color : 'transparent'};
-  color: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.on : theme.primary.color};
-  border: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'outlined' ? `1px solid ${theme.primary.color}` : 'none'};
+  color: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
+  border: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'outlined' ? `1px solid ${theme.secondary.color}` : 'none'};
 
   &:hover {
     opacity: 92%;

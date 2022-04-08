@@ -36,6 +36,10 @@ export const defaultLightTheme: BaseTheme = {
         onVariant: '#899295',
     },
     primary: {
+        color: CC_BLUE,
+        on: DARK_GRAY_BLUISH
+    },
+    secondary: {
         color: CC_BLUE_DARK,
         on: WHITE
     },
@@ -57,7 +61,7 @@ export const defaultDarkTheme: BaseTheme = {
         on: OFF_WHITE,
     },
     surface: {
-        color: GRAY_BLUISH,
+        color: '#333B44',
         on: OFF_WHITE,
     },
     inputs: {
@@ -69,6 +73,10 @@ export const defaultDarkTheme: BaseTheme = {
         onVariant: '#899295',
     },
     primary: {
+        color: CC_BLUE_DARK,
+        on: WHITE
+    },
+    secondary: {
         color: CC_BLUE,
         on: DARK_GRAY_BLUISH
     },

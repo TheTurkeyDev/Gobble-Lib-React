@@ -27,6 +27,10 @@ export type BaseTheme = {
     readonly color: string,
     readonly on: string
   },
+  readonly secondary: {
+    readonly color: string,
+    readonly on: string
+  },
   readonly error: {
     readonly color: string,
     readonly on: string
