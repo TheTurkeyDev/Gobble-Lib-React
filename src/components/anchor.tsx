@@ -1,10 +1,12 @@
 import styled, { ThemeProps } from 'styled-components';
 import { FontWeight } from '../constants/font-weight';
 import { BaseTheme } from '../theme/turkeydev-theme';
+import { Body1, Body1Css } from '../typography';
 
 export const StyledAnchor = styled.a`
+    ${Body1Css}
     text-decoration: none;
-    color: ${({ theme }: ThemeProps<BaseTheme>): string => theme.primary.color};
+    color: ${({ theme }: ThemeProps<BaseTheme>): string => theme.secondary.color};
     font-weight: ${FontWeight.MEDIUM};
 
     :hover {
@@ -12,7 +14,7 @@ export const StyledAnchor = styled.a`
     }
 `;
 
-export const DisabledAnchor = styled.span`
+export const DisabledAnchor = styled(Body1)`
   text-decoration: none;
   background-color:${({ theme }) => theme.outline};
   font-weight: ${FontWeight.MEDIUM};
