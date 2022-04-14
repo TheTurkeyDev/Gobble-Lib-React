@@ -2,7 +2,7 @@ import styled, { ThemeProps } from 'styled-components';
 import { FontWeight } from '../constants/font-weight';
 import { BaseTheme } from '../theme/turkeydev-theme';
 import { Body1, Body1Css } from '../typography';
-import { TextHoverCss } from '../typography/text-hover-styling';
+import { TextHoverCss } from '../styling/text-hover-styling';
 
 export const StyledAnchor = styled.a`
     ${Body1Css}

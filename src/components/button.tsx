@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { GLThemeProps } from '../theme/turkeydev-theme';
-import { TextHoverCss } from '../typography/text-hover-styling';
+import { TextHoverCss } from '../styling/text-hover-styling';
 import { ButtonText } from '../typography/typography';
 
 type ButtonCSS = {

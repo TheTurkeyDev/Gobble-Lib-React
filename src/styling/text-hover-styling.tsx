@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { HoverOpacity } from '../constants/opacity';
+import { Opacity } from '../constants/opacity';
 
 export const TextHoverCss = css`
-    :hover {
-        opacity: ${HoverOpacity};
+    &:hover {
+        opacity: ${Opacity.HOVER_NORMAL};
         text-decoration: none;
         cursor: pointer;
     }
