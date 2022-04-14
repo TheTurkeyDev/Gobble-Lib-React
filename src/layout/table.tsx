@@ -8,13 +8,15 @@ export const Table = styled.table`
     border-spacing: 0;
 
     & th {
-        border-top: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
         border-bottom: 2px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
         padding: 8px;
     }
 
-    & td {
+    & tr {
         border-top: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+    }
+
+    & td {
         padding: 8px;
     }
 `;
