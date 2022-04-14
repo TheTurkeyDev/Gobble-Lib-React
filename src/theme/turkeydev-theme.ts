@@ -1,7 +1,6 @@
 import { ThemedStyledProps } from 'styled-components';
 
 export type BaseTheme = {
-  readonly isDarkTheme: boolean,
   readonly fontFamily: string,
   readonly background: {
     readonly color: string,

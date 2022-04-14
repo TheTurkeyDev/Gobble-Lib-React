@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled, { css, ThemeProps } from 'styled-components';
 import { Opacity } from '../constants';
-import { TextHoverCss } from '../styling';
 import { BaseTheme, WHITE, BLACK } from '../theme';
 import { Headline6Css, Subtitle1, Subtitle1Css } from '../typography/typography';
 
@@ -18,13 +17,17 @@ export const NavBar = styled.nav`
 
 export const SiteName = styled(Link)`
     ${Headline6Css}
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.isDarkTheme ? WHITE : BLACK};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
     text-decoration: none;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
     white-space: nowrap;
 
-    ${TextHoverCss}
+    &:hover {
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
+        opacity: ${Opacity.HOVER_NORMAL};
+        text-decoration: none;
+    }
 `;
 
 export const CenterContent = styled.div`
@@ -52,7 +55,8 @@ const NavLinkCss = css`
     text-decoration: none;
 
     &:hover {
-        opacity: ${Opacity.HOVER_MEDIUM};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
+        opacity: ${Opacity.HOVER_NORMAL};
         text-decoration: none;
     }
 `;

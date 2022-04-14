@@ -13,7 +13,6 @@ export const DARK_GRAY_BLUISH = '#212529';
 export const LIGHT_GRAY = '#f1f1f1';
 
 export const defaultLightTheme: BaseTheme = {
-    isDarkTheme: false,
     fontFamily: 'Ubuntu',
     background: {
         color: '#E5E5E5',
@@ -50,7 +49,6 @@ export const defaultLightTheme: BaseTheme = {
 };
 
 export const defaultDarkTheme: BaseTheme = {
-    isDarkTheme: true,
     fontFamily: 'Ubuntu',
     background: {
         color: DARK_GRAY_BLUISH,
@@ -86,6 +84,42 @@ export const defaultDarkTheme: BaseTheme = {
     }
 };
 
+export const defaultJustRed: BaseTheme = {
+    fontFamily: 'Ubuntu',
+    background: {
+        color: '#ff0000',
+        on: '#ff0000'
+    },
+    navbar: {
+        color: '#ff0000',
+        on: '#ff0000',
+    },
+    surface: {
+        color: '#ff0000',
+        on: '#ff0000',
+    },
+    inputs: {
+        color: '#ff0000',
+        colorDisabled: '#ff0000',
+        outlineRaised: '#ff0000',
+        outlineLowered: '#ff0000',
+        on: '#ff0000',
+        onVariant: '#ff0000',
+    },
+    primary: {
+        color: '#ff0000',
+        on: '#ff0000'
+    },
+    secondary: {
+        color: '#ff0000',
+        on: '#ff0000'
+    },
+    error: {
+        color: '#ff0000',
+        on: '#ff0000'
+    }
+};
+
 type ThemeContextType = {
     readonly setTheme: (newTheme: string) => void
     readonly theme: string
@@ -107,7 +141,7 @@ type ThemeContextProviderProps = WithChildren & {
     readonly themes?: readonly { readonly name: string, readonly theme: BaseTheme }[]
 }
 
-const defaultThemes = ['dark', 'light'];
+const defaultThemes = ['dark', 'light', 'just_red'];
 
 export const ThemeContextProvider = ({ children, themes }: ThemeContextProviderProps) => {
     const darkModeLocalStorage = localStorage.getItem(darkModeKey) ?? (window.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? 'dark' : 'light');
@@ -120,7 +154,8 @@ export const ThemeContextProvider = ({ children, themes }: ThemeContextProviderP
 
     const darkThemeToUse = themes?.find(t => t.name === 'dark')?.theme ?? defaultDarkTheme;
     const lightThemeToUse = themes?.find(t => t.name === 'light')?.theme ?? defaultLightTheme;
-    const themeMap = [...(themes?.filter(t => !defaultThemes.includes(t.name)) ?? []), { name: 'dark', theme: darkThemeToUse }, { name: 'light', theme: lightThemeToUse }];
+    const justRedThemeToUse = themes?.find(t => t.name === 'just_red')?.theme ?? defaultJustRed;
+    const themeMap = [...(themes?.filter(t => !defaultThemes.includes(t.name)) ?? []), { name: 'dark', theme: darkThemeToUse }, { name: 'light', theme: lightThemeToUse }, { name: 'just_red', theme: justRedThemeToUse }];
 
     return (
         <ThemeContext.Provider value={{ setTheme, theme }}>

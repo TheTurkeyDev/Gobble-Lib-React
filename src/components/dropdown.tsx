@@ -25,6 +25,9 @@ export const DropdownContent = styled.div<DropdownContentProps>`
         color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
         text-decoration: none;
         ${TextHoverCss}
+        &:hover{
+            color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+        }
     }
 `;
 
