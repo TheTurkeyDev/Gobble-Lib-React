@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { GLThemeProps } from '../theme/turkeydev-theme';
+import { TextHoverCss } from '../typography/text-hover-styling';
 import { ButtonText } from '../typography/typography';
 
 type ButtonCSS = {
@@ -21,11 +22,7 @@ const ButtonWrapper = styled.button<ButtonCSS>`
   color: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
   border: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'outlined' ? `1px solid ${theme.secondary.color}` : 'none'};
 
-  &:hover {
-    opacity: 92%;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  ${TextHoverCss}
 
   &:disabled {
     background-color:${({ theme }) => theme.outline};

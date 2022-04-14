@@ -1,6 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled, { ThemeProps } from 'styled-components';
 import { Elevation } from '../constants';
+import { HoverOpacity } from '../constants/opacity';
 import { BaseTheme } from '../theme';
+import { Subtitle1Css } from '../typography';
+import { TextHoverCss } from '../typography/text-hover-styling';
 
 type DropdownContentProps = {
     readonly sideAnchor?: string
@@ -38,4 +42,9 @@ export const Dropdown = styled.div`
     &:hover { 
         cursor: pointer;
     }
+`;
+
+export const DropdownLinkItem = styled(Link)`
+    ${Subtitle1Css}
+    ${TextHoverCss}
 `;
