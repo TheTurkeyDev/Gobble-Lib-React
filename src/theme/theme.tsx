@@ -88,35 +88,35 @@ export const defaultJustRed: BaseTheme = {
     fontFamily: 'Ubuntu',
     background: {
         color: '#ff0000',
-        on: '#ff0000'
+        on: '#ff4040'
     },
     navbar: {
         color: '#ff0000',
-        on: '#ff0000',
+        on: '#ff4040',
     },
     surface: {
         color: '#ff0000',
-        on: '#ff0000',
+        on: '#ff4040',
     },
     inputs: {
         color: '#ff0000',
         colorDisabled: '#ff0000',
         outlineRaised: '#ff0000',
         outlineLowered: '#ff0000',
-        on: '#ff0000',
-        onVariant: '#ff0000',
+        on: '#ff4040',
+        onVariant: '#ff4040',
     },
     primary: {
         color: '#ff0000',
-        on: '#ff0000'
+        on: '#ff4040'
     },
     secondary: {
         color: '#ff0000',
-        on: '#ff0000'
+        on: '#ff4040'
     },
     error: {
         color: '#ff0000',
-        on: '#ff0000'
+        on: '#ff4040'
     }
 };
 
@@ -152,10 +152,14 @@ export const ThemeContextProvider = ({ children, themes }: ThemeContextProviderP
         setCurrentTheme(newTheme);
     };
 
-    const darkThemeToUse = themes?.find(t => t.name === 'dark')?.theme ?? defaultDarkTheme;
-    const lightThemeToUse = themes?.find(t => t.name === 'light')?.theme ?? defaultLightTheme;
-    const justRedThemeToUse = themes?.find(t => t.name === 'just_red')?.theme ?? defaultJustRed;
-    const themeMap = [...(themes?.filter(t => !defaultThemes.includes(t.name)) ?? []), { name: 'dark', theme: darkThemeToUse }, { name: 'light', theme: lightThemeToUse }, { name: 'just_red', theme: justRedThemeToUse }];
+    const getThemeToUse = (name: string, defaultTheme: BaseTheme) => themes?.find(t => t.name === name)?.theme ?? defaultTheme;
+
+    const themeMap = [
+        ...(themes?.filter(t => !defaultThemes.includes(t.name)) ?? []),
+        { name: 'dark', theme: getThemeToUse('dark', defaultDarkTheme) },
+        { name: 'light', theme: getThemeToUse('light', defaultLightTheme) },
+        { name: 'just_red', theme: getThemeToUse('just_red', defaultJustRed) }
+    ];
 
     return (
         <ThemeContext.Provider value={{ setTheme, theme }}>

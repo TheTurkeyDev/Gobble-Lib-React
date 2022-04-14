@@ -11,6 +11,9 @@ export const StyledAnchor = styled.a`
     font-weight: ${FontWeight.MEDIUM};
 
     ${TextHoverCss}
+    &:hover {
+        color: ${({ theme }: ThemeProps<BaseTheme>): string => theme.secondary.color};
+    }
 `;
 
 export const DisabledAnchor = styled(Body1)`
