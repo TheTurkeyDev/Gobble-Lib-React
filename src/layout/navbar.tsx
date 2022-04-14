@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { css, ThemeProps } from 'styled-components';
+import { Opacity } from '../constants';
+import { TextHoverCss } from '../styling';
 import { BaseTheme, WHITE, BLACK } from '../theme';
 import { Headline6Css, Subtitle1, Subtitle1Css } from '../typography/typography';
 
@@ -22,10 +24,7 @@ export const SiteName = styled(Link)`
     padding-bottom: 0.3125rem;
     white-space: nowrap;
 
-    &:hover {
-        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.isDarkTheme ? WHITE : BLACK}c0`};
-        text-decoration: none;
-    }
+    ${TextHoverCss}
 `;
 
 export const CenterContent = styled.div`
@@ -53,7 +52,7 @@ const NavLinkCss = css`
     text-decoration: none;
 
     &:hover {
-        color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.navbar.on}aa`};
+        opacity: ${Opacity.HOVER_MEDIUM};
         text-decoration: none;
     }
 `;

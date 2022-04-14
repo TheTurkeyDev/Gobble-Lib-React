@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import styled, { ThemeProps } from 'styled-components';
+import { Opacity } from '../constants/opacity';
 import { BaseTheme } from '../theme';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
@@ -40,7 +41,7 @@ const InputContainer = styled.div`
     }
 
     &:hover&:not(:focus-within) {
-        background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.color}a8;
+        opacity: ${Opacity.HOVER_MEDIUM};
     }
 `;
 

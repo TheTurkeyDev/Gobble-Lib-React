@@ -24,11 +24,7 @@ export const DropdownContent = styled.div<DropdownContentProps>`
     & > * {
         color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
         text-decoration: none;
-
-        &:hover {
-            color: ${({ theme }: ThemeProps<BaseTheme>) => `${theme.surface.on}aa`};
-            text-decoration: none;
-        }
+        ${TextHoverCss}
     }
 `;
 
@@ -45,5 +41,4 @@ export const Dropdown = styled.div`
 
 export const DropdownLinkItem = styled(Link)`
     ${Subtitle1Css}
-    ${TextHoverCss}
 `;

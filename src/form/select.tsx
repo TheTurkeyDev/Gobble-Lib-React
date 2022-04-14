@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { ThemeProps } from 'styled-components';
+import { Opacity } from '../constants/opacity';
 import { BaseTheme } from '../theme/turkeydev-theme';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
@@ -17,7 +18,7 @@ const SelectWrapper = styled.select`
     transition: background-color 0.2s;
 
     &:hover&:not(:focus-within) {
-        background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.color}a8;
+        opacity: ${Opacity.HOVER_MEDIUM};
     }
 `;
 

@@ -1,4 +1,4 @@
 export const Opacity = {
-    HOVER_NORMAL: '92%',
-    HOVER_MEDIUM: '75%',
+    HOVER_NORMAL: '75%',
+    HOVER_MEDIUM: '67%',
 };
