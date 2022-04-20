@@ -1,12 +1,14 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from '@rollup/plugin-babel';
-import typescript from "@rollup/plugin-typescript";
+import typescript from 'rollup-plugin-typescript2';
 import dts from "rollup-plugin-dts";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from "rollup-plugin-terser";
 
 const packageJson = require("./package.json");
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const styledComponentsTransformer = createStyledComponentsTransformer({ minify: true });
 
 export default [
     {
@@ -27,15 +29,22 @@ export default [
         plugins: [
             peerDepsExternal(),
             resolve(),
-            babel({ babelHelpers: 'bundled' }),
             commonjs(),
-            typescript({ tsconfig: "./tsconfig.json" }),
+            typescript({
+                tsconfig: "./tsconfig.json",
+                transformers: [
+                    () => ({
+                        before: [styledComponentsTransformer],
+                    }),
+                ],
+            }),
+            babel({ babelHelpers: 'bundled' }),
             terser()
         ],
         external: ['react', 'react-dom', "styled-components"]
     },
     {
-        input: "dist/esm/types/index.d.ts",
+        input: "dist/esm/index.d.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
         plugins: [dts()],
     },
