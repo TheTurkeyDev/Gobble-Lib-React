@@ -2,9 +2,15 @@ import styled, { ThemeProps } from 'styled-components';
 import { BaseTheme } from '../theme/turkeydev-theme';
 import { Body1Css, Subtitle1Css } from '../typography/typography';
 
-export const Table = styled.table`
+export type TableProps = React.TableHTMLAttributes<HTMLTableElement> & {
+    readonly tableColumns: string
+}
+
+export const Table = styled.table<TableProps>`
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: ${({ tableColumns }) => tableColumns};
     border-spacing: 0;
 
     & th {
