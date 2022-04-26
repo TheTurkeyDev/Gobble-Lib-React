@@ -13,6 +13,14 @@ export const Table = styled.table<TableProps>`
     grid-template-columns: ${({ tableColumns }) => tableColumns};
     border-spacing: 0;
 
+    & thead {
+        display: ${({ tableColumns }) => !!tableColumns ? 'contents' : ''};
+    }
+
+    & tbody {
+        display: ${({ tableColumns }) => !!tableColumns ? 'contents' : ''};
+    }
+
     & th {
         border-bottom: 2px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
         padding: 8px;
@@ -20,6 +28,7 @@ export const Table = styled.table<TableProps>`
 
     & tr {
         border-top: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+        display: ${({ tableColumns }) => !!tableColumns ? 'contents' : ''};
     }
 
     & td {
