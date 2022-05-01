@@ -11,3 +11,7 @@ export const InputsWrapper = styled.div<InputsWrapperProps>`
     align-items: center;
     width: ${({ fullWidth }) => fullWidth ? '100%' : 'fit-content'};
 `;
+
+export const InputsFullWidth = styled.div`
+    grid-area: span 1 / 2;
+`;
