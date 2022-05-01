@@ -144,7 +144,7 @@ type ThemeContextProviderProps = WithChildren & {
 const defaultThemes = ['dark', 'light', 'just_red'];
 
 export const ThemeContextProvider = ({ children, themes }: ThemeContextProviderProps) => {
-    const darkModeLocalStorage = localStorage.getItem(darkModeKey) ?? (window.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? 'dark' : 'light');
+    const darkModeLocalStorage = localStorage.getItem(darkModeKey) ?? (window.matchMedia?.('(prefers-color-scheme:light)')?.matches ? 'light' : 'dark');
     const [theme, setCurrentTheme] = useState<string>(darkModeLocalStorage);
 
     const setTheme = (newTheme: string) => {
