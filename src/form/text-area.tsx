@@ -27,6 +27,12 @@ const StyledTextArea = styled.textarea`
     &:required, &:invalid {
         box-shadow: none;
     }
+
+    &:disabled {
+        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
+        cursor: not-allowed;
+    }
 `;
 
 type TextAreaProps = React.InputHTMLAttributes<HTMLTextAreaElement> & {

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
-import { GLThemeProps } from '../theme/turkeydev-theme';
+import styled, { ThemeProps } from 'styled-components';
+import { BaseTheme, GLThemeProps } from '../theme/turkeydev-theme';
 import { TextHoverCss } from '../styling/text-hover-styling';
 import { ButtonText } from '../typography/typography';
 
@@ -25,7 +25,8 @@ const ButtonWrapper = styled.button<ButtonCSS>`
   ${TextHoverCss}
 
   &:disabled {
-    background-color:${({ theme }) => theme.outline};
+    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
+    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
     cursor: not-allowed;
   }
 `;

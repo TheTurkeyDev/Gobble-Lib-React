@@ -20,6 +20,12 @@ const SelectWrapper = styled.select`
     &:hover&:not(:focus-within) {
         opacity: ${Opacity.HOVER_MEDIUM};
     }
+
+    &:disabled {
+        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
+        cursor: not-allowed;
+    }
 `;
 
 type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {

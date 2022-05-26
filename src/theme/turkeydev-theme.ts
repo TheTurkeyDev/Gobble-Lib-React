@@ -21,6 +21,7 @@ export type BaseTheme = {
     readonly outlineLowered: string,
     readonly on: string,
     readonly onVariant: string,
+    readonly onDisabled: string,
   },
   readonly primary: {
     readonly color: string,

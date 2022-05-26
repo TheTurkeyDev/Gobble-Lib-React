@@ -33,6 +33,7 @@ export const defaultLightTheme: BaseTheme = {
         outlineLowered: '#00000099',
         on: DARK_GRAY_BLUISH,
         onVariant: '#899295',
+        onDisabled: '#767c7e',
     },
     primary: {
         color: CC_BLUE,
@@ -69,6 +70,7 @@ export const defaultDarkTheme: BaseTheme = {
         outlineLowered: '#00000066',
         on: WHITE,
         onVariant: '#899295',
+        onDisabled: '#b3babd',
     },
     primary: {
         color: CC_BLUE_DARK,
@@ -105,6 +107,7 @@ export const defaultJustRed: BaseTheme = {
         outlineLowered: '#ff0000',
         on: '#ff4040',
         onVariant: '#ff4040',
+        onDisabled: '#ff4040',
     },
     primary: {
         color: '#ff0000',
