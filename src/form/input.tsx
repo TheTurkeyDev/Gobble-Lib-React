@@ -23,6 +23,17 @@ const StyledInput = styled.input`
     &:not(placeholder-shown){
         color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.on};
     }
+
+    &:disabled {
+        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
+        cursor: not-allowed;
+    }
+
+    &:read-only {
+        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
+    }
 `;
 
 const InputContainer = styled.div`
@@ -42,17 +53,6 @@ const InputContainer = styled.div`
 
     &:hover&:not(:focus-within) {
         opacity: ${Opacity.HOVER_MEDIUM};
-    }
-
-    &:disabled {
-        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
-        cursor: not-allowed;
-    }
-
-    &:read-only {
-        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
     }
 `;
 
