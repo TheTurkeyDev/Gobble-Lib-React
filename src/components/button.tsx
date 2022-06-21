@@ -25,8 +25,9 @@ const ButtonWrapper = styled.button<ButtonCSS>`
   ${TextHoverCss}
 
   &:disabled {
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
+    background: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.inputs.colorDisabled : 'transparent'};
+    color: ${({ theme }: GLThemeProps<ButtonCSS>) => theme.inputs.onDisabled};
+    border: ${({ theme }: GLThemeProps<ButtonCSS>) => theme.inputs.colorDisabled};
     cursor: not-allowed;
   }
 `;
