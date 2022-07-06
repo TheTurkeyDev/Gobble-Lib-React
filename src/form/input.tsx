@@ -49,7 +49,7 @@ const InputContainer = styled.div<InputContainerProps>`
     display: grid;
     grid-template-columns: auto 1fr auto;
     transition: background-color 0.2s;
-    cursor:  ${({ disabled, readOnly }: GLThemeProps<InputContainerProps>) => disabled || readOnly ? 'not-allowed' : ''};
+    cursor:  ${({ disabled }: GLThemeProps<InputContainerProps>) => disabled ? 'not-allowed' : ''};
 
     &:focus-within {
         color:  ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.on};
