@@ -26,6 +26,11 @@ const SelectWrapper = styled.select`
         color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
         cursor: not-allowed;
     }
+
+    &:checked {
+        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
+        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
+    }
 `;
 
 type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {
