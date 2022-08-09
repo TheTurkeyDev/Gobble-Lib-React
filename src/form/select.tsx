@@ -37,9 +37,6 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         {
             id,
             value,
-            style,
-            className,
-            disabled,
             onChange,
             label,
             ...props
