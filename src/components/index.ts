@@ -5,3 +5,4 @@ export * from './link-button';
 export * from './horizontal-rule';
 export * from './project-tile';
 export * from './anchor';
+export * from './accordion';
