@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled, { ThemeProps } from 'styled-components';
-import { SpaceBetween } from '../layout';
 import { BaseTheme } from '../theme';
 import { Subtitle1 } from '../typography';
 import { WithChildren } from '../with-children-type';
@@ -12,7 +11,7 @@ const AccordionWrapper = styled.div`
 
 const AccordionHeader = styled.div`
     display: grid;
-    grid-template-columns: auto auto 1fr auto;
+    grid-template-columns: 1fr auto;
     gap: 8px;
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
     border: 3px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
@@ -37,18 +36,18 @@ const CollapseText = styled(Subtitle1)`
     }
 `;
 
-type AccordionProps = WithChildren & {
+type AccordionProps = WithChildren & React.InputHTMLAttributes<HTMLDivElement> & {
     readonly header: string
+    readonly defaultShow: boolean
 }
 
-export const Accordion = ({ children, header }: AccordionProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+export const Accordion = ({ children, header, defaultShow = false, ...props }: AccordionProps) => {
+    const [collapsed, setCollapsed] = useState(!defaultShow);
 
     return (
-        <AccordionWrapper>
+        <AccordionWrapper {...props}>
             <AccordionHeader>
                 <Subtitle1>{header}</Subtitle1>
-                <SpaceBetween />
                 <CollapseText onClick={() => setCollapsed(!collapsed)}>{collapsed ? '+' : '-'}</CollapseText>
             </AccordionHeader>
             {
