@@ -38,7 +38,7 @@ const CollapseText = styled(Subtitle1)`
 
 type AccordionProps = WithChildren & React.InputHTMLAttributes<HTMLDivElement> & {
     readonly header: string
-    readonly defaultShow: boolean
+    readonly defaultShow?: boolean
 }
 
 export const Accordion = ({ children, header, defaultShow = false, ...props }: AccordionProps) => {
