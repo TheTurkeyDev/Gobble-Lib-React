@@ -1,12 +1,38 @@
 import { forwardRef } from 'react';
-import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme, GLThemeProps } from '../theme/turkeydev-theme';
+import styled, { keyframes } from 'styled-components';
+import { GLThemeProps } from '../theme/turkeydev-theme';
 import { TextHoverCss } from '../styling/text-hover-styling';
 import { ButtonText } from '../typography/typography';
 
+type ButtonVariants = 'contained' | 'outlined' | 'text'
+
+const Rotation = keyframes`
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+`;
+
+type SpinnerProps = {
+    readonly variant: ButtonVariants
+}
+
+const SimpleLoadingSpinner = styled.span<SpinnerProps>`
+    min-width: 16px;
+    min-height: 16px;
+    border: 3px solid ${({ variant, theme }: GLThemeProps<SpinnerProps>) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: ${Rotation} 1s linear infinite;
+`;
+
 type ButtonCSS = {
     readonly hasIcon: boolean
-    readonly variant: 'contained' | 'outlined' | 'text'
+    readonly variant: ButtonVariants
     readonly disabled?: boolean
 }
 
@@ -33,37 +59,43 @@ const ButtonWrapper = styled.button<ButtonCSS>`
 `;
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    readonly variant: 'contained' | 'outlined' | 'text'
+    readonly variant: ButtonVariants
     readonly icon?: string
+    readonly loading?: boolean
     readonly selected?: boolean
 }
 
 //TODO: Remove bare div's
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, icon, children, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, icon, loading, children, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
     <ButtonWrapper ref={ref} variant={variant} hasIcon={!!icon} {...props}>
-        <div>
-            {icon}
-        </div>
-        <ButtonText>
-            {children}
-        </ButtonText>
+        {
+            loading ?
+                <SimpleLoadingSpinner variant={variant} />
+                :
+                <>
+                    <div>
+                        {icon}
+                    </div>
+                    <ButtonText>
+                        {children}
+                    </ButtonText>
+                </>
+        }
+
     </ButtonWrapper>
 ));
 
 
-type ButtonvariantProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    readonly icon?: string
-    readonly selected?: boolean
-}
+type ButtonVariantProps = Omit<ButtonProps, 'variant'>
 
-export const ContainedButton = (props: ButtonvariantProps) => (
+export const ContainedButton = (props: ButtonVariantProps) => (
     <Button variant='contained' {...props} />
 );
 
-export const OutlinedButton = (props: ButtonvariantProps) => (
+export const OutlinedButton = (props: ButtonVariantProps) => (
     <Button variant='outlined' {...props} />
 );
 
-export const TextButton = (props: ButtonvariantProps) => (
+export const TextButton = (props: ButtonVariantProps) => (
     <Button variant='text'{...props} />
 );
