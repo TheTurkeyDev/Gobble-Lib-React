@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import styled, { css, ThemeProps } from 'styled-components';
+import styled, { ThemeProps } from 'styled-components';
 import { Opacity } from '../constants';
 import { device } from '../constants/device-sizes';
 import { BaseTheme } from '../theme';
-import { Headline6Css, Subtitle1, Subtitle1Css } from '../typography/typography';
+import { Headline6Css } from '../typography/typography';
 import { WithChildren } from '../with-children-type';
 
 export const NavBar = styled.nav`
@@ -32,12 +32,16 @@ export const SiteName = styled(Link)`
     }
 `;
 
-const CenterContentStandard = styled.div`
-    display: none;
+export const CenterContent = styled.div`
+    display: flex;
     flex-flow: row;
     flex-grow: 1;
     align-items: center;
     gap: 16px;
+`;
+
+const CenterContentDesktop = styled(CenterContent)`
+    display: none;
     @media ${device.tablet} {
         display: flex;
     }
@@ -52,47 +56,11 @@ const CenterContentNone = styled.div`
     }
 `;
 
-export const CenterContent = ({ children }: WithChildren) => {
+export const CollapsibleCenterContent = ({ children }: WithChildren) => (
     <>
-        <CenterContentStandard>
+        <CenterContentDesktop>
             {children}
-        </CenterContentStandard>
+        </CenterContentDesktop>
         <CenterContentNone />
-    </>;
-};
-
-type NavLinkProps = {
-    readonly link: string
-    readonly children?: JSX.Element | readonly JSX.Element[] | string
-}
-
-export const NavLink = ({ link, children }: NavLinkProps) => {
-    return link.startsWith('http') ?
-        <NavLinkA href={link} target='_blank' rel='noopener noreferrer'>{children} </NavLinkA> :
-        <NavLinkLink to={link} > {children} </NavLinkLink>;
-};
-
-const NavLinkCss = css`
-        ${Subtitle1Css}
-        padding: 0;
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
-        text-decoration: none;
-
-        &:hover {
-            color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
-        opacity: ${Opacity.HOVER_NORMAL};
-        text-decoration: none;
-    }
-        `;
-
-const NavLinkLink = styled(Link)`
-        ${NavLinkCss}
-        `;
-
-const NavLinkA = styled.a`
-        ${NavLinkCss}
-        `;
-
-export const NavText = styled(Subtitle1)`
-        ${NavLinkCss}
-        `;
+    </>
+);
