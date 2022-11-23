@@ -31,7 +31,6 @@ export const Loading = styled.div`
     mask: linear-gradient(rgba(0, 0, 0, 0.1), #000000 90%);
     transform-origin: 50% 60%;
     transform: perspective(200px) rotateX(66deg);
-    animation: spinner-wiggle 1.2s infinite;
 
     &:before, &:after {
         content: "";

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import styled, { css, ThemeProps } from 'styled-components';
 import { Opacity } from '../constants';
-import { BaseTheme, WHITE, BLACK } from '../theme';
+import { device } from '../constants/device-sizes';
+import { BaseTheme } from '../theme';
 import { Headline6Css, Subtitle1, Subtitle1Css } from '../typography/typography';
+import { WithChildren } from '../with-children-type';
 
 export const NavBar = styled.nav`
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.color};
@@ -30,12 +32,34 @@ export const SiteName = styled(Link)`
     }
 `;
 
-export const CenterContent = styled.div`
-    display: flex;
+const CenterContentStandard = styled.div`
+    display: none;
     flex-flow: row;
+    flex-grow: 1;
     align-items: center;
     gap: 16px;
+    @media ${device.tablet} {
+        display: flex;
+    }
 `;
+
+const CenterContentNone = styled.div`
+    display: flex;
+    flex-flow: row;
+    flex-grow: 1;
+    @media ${device.tablet} {
+        display: none;
+    }
+`;
+
+export const CenterContent = ({ children }: WithChildren) => {
+    <>
+        <CenterContentStandard>
+            {children}
+        </CenterContentStandard>
+        <CenterContentNone />
+    </>;
+};
 
 type NavLinkProps = {
     readonly link: string
@@ -49,26 +73,26 @@ export const NavLink = ({ link, children }: NavLinkProps) => {
 };
 
 const NavLinkCss = css`
-    ${Subtitle1Css}
-    padding: 0;
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
-    text-decoration: none;
-
-    &:hover {
+        ${Subtitle1Css}
+        padding: 0;
         color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
+        text-decoration: none;
+
+        &:hover {
+            color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
         opacity: ${Opacity.HOVER_NORMAL};
         text-decoration: none;
     }
-`;
+        `;
 
 const NavLinkLink = styled(Link)`
-    ${NavLinkCss}
-`;
+        ${NavLinkCss}
+        `;
 
 const NavLinkA = styled.a`
-    ${NavLinkCss}
-`;
+        ${NavLinkCss}
+        `;
 
 export const NavText = styled(Subtitle1)`
-    ${NavLinkCss}
-`;
+        ${NavLinkCss}
+        `;

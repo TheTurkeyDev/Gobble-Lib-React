@@ -31,5 +31,5 @@ type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 export const Anchor = ({ disabled, href, openInNewTab = false, ...props }: AnchorProps): JSX.Element => (
     disabled ?
         <DisabledAnchor {...props} /> :
-        <StyledAnchor href={href} {...props} {...(openInNewTab ? { target: '_blank', rel: 'noopener noreferrer' } : { target: '', rel: '' })} />
+        <StyledAnchor href={href} {...props} {...(openInNewTab ? { target: '_blank', rel: 'noopener noreferrer' } : { target: '_blank', rel: '' })} />
 );
