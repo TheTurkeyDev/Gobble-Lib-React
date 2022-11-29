@@ -5,7 +5,15 @@ import { BaseTheme, GLThemeProps } from '../theme';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
 
-const Icon = styled.div`
+type IconProps = {
+    readonly clickable: boolean
+}
+const Icon = styled.i<IconProps>`
+    align-self: center;
+    
+    &:hover {
+        cursor: ${({ clickable }) => clickable ? 'pointer' : ''};
+    }
 `;
 
 const StyledInput = styled.input`
@@ -14,6 +22,7 @@ const StyledInput = styled.input`
     color: inherit;
     outline: 0;
     border: 0;
+    padding: 0;
     height: 100%;
 
     &:required, &:invalid {
@@ -60,18 +69,22 @@ const InputContainer = styled.div<InputContainerProps>`
     }
 `;
 
-export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
     readonly label?: string
+    readonly preIcon?: string
+    readonly preIconOnClick?: () => void
+    readonly postIcon?: string
+    readonly postIconOnClick?: () => void
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, preIcon, postIcon, preIconOnClick, postIconOnClick, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
     return (
         <>
             {label && <Label htmlFor={id}>{label}</Label>}
             <InputContainer disabled={props.disabled ?? false} readOnly={props.readOnly ?? false}>
-                <Icon />
+                <Icon className={preIcon} clickable={!!preIconOnClick} onClick={preIconOnClick} />
                 <StyledInput aria-label={`${id}-input`} id={id} ref={ref} {...props} />
-                <Icon />
+                <Icon className={postIcon} clickable={!!postIconOnClick} onClick={postIconOnClick} />
             </InputContainer>
         </>
     );
