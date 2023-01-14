@@ -27,7 +27,7 @@ const FadeOut = keyframes`
 
 const ToastWrapper = styled.div`
     min-width: 320px;
-    margin-left: -160px;
+    margin-inline: auto;
     color: #fff;
     text-align: center;
     border-radius: 25px;
