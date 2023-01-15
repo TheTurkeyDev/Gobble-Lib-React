@@ -25,20 +25,29 @@ const FadeOut = keyframes`
     }
 `;
 
+const ToastContainer = styled.div`
+    position: fixed;
+    bottom: 30px;
+    z-index: 5;
+    height: min-height;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    justify-items: center;
+    pointer-events: none;
+`;
+
 const ToastWrapper = styled.div`
     min-width: 320px;
-    margin-inline: auto;
+    width: fit-content;
     color: #fff;
     text-align: center;
     border-radius: 25px;
     padding: 16px;
-    position: fixed;
-    z-index: 5;
-    left: 50%;
-    bottom: 30px;
     box-shadow: 7px 7px 25px black;
     background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
-    animation: ${FadeIn} 0.5s, ${FadeOut} 0.5s 4.5s;
+    animation: ${FadeIn} 0.5s, ${FadeOut} 0.5s 4.6s;
 `;
 
 type ToastContextType = {
@@ -73,11 +82,13 @@ export const Toast = ({ children }: WithChildren) => {
 
     return (
         <ToastContext.Provider value={{ pushToast }}>
-            {toasts.map(toast =>
-                <ToastWrapper key={toast.id}>
-                    {toast.component}
-                </ToastWrapper>
-            )}
+            <ToastContainer>
+                {toasts.map(toast =>
+                    <ToastWrapper key={toast.id}>
+                        {toast.component}
+                    </ToastWrapper>
+                )}
+            </ToastContainer>
             {children}
         </ToastContext.Provider >
     );

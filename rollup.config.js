@@ -31,6 +31,9 @@ export default [
             resolve(),
             commonjs(),
             typescript({
+                tsconfigOverride: {
+                    exclude: ["**/__stories__", "**/*.stories.tsx"],
+                },
                 tsconfig: "./tsconfig.json",
                 transformers: [
                     () => ({
