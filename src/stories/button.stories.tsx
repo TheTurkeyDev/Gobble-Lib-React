@@ -1,17 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button as Btn } from '../components/button';
+import { Button } from '../components/button';
 
 export default {
-    title: 'GobbleLib/Button',
-    component: Btn,
-} as ComponentMeta<typeof Btn>;
+    title: 'GobbleLib/Component/Button',
+    component: Button,
+} as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Btn> = (args) => <Btn {...args}>Button</Btn>;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Button</Button>;
 
-export const Button = Template.bind({});
+export const button = Template.bind({});
 
-Button.args = {
+button.args = {
     variant: 'contained',
     loading: false,
     selected: false,

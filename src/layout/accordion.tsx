@@ -19,21 +19,16 @@ const AccordionHeader = styled.div`
     border-top-right-radius: 8px;
     padding: 8px;
     align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const AccordionContent = styled.div`
     border: 3px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 8px;
-    align-items: center;
+    grid-template-columns: 1fr;
     padding: 8px;
-`;
-
-const CollapseText = styled(Subtitle1)`
-    &:hover {
-        cursor: pointer;
-    }
 `;
 
 type AccordionProps = WithChildren & React.InputHTMLAttributes<HTMLDivElement> & {
@@ -46,9 +41,9 @@ export const Accordion = ({ children, header, defaultShow = false, ...props }: A
 
     return (
         <AccordionWrapper {...props}>
-            <AccordionHeader>
+            <AccordionHeader onClick={() => setCollapsed(!collapsed)}>
                 <Subtitle1>{header}</Subtitle1>
-                <CollapseText onClick={() => setCollapsed(!collapsed)}>{collapsed ? '+' : '-'}</CollapseText>
+                <Subtitle1>{collapsed ? '+' : '-'}</Subtitle1>
             </AccordionHeader>
             {
                 !collapsed && (

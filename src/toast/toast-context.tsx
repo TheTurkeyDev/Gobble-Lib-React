@@ -69,7 +69,11 @@ type ToastType = {
     readonly visibility: boolean
 }
 
-export const Toast = ({ children }: WithChildren) => {
+type ToastProps = WithChildren & {
+    readonly maxShown?: number
+}
+
+export const Toast = ({ children, maxShown = 5 }: ToastProps) => {
     const [toasts, setToasts] = useState<readonly ToastType[]>([]);
 
     const pushToast = (component: JSX.Element) => {
@@ -83,7 +87,7 @@ export const Toast = ({ children }: WithChildren) => {
     return (
         <ToastContext.Provider value={{ pushToast }}>
             <ToastContainer>
-                {toasts.map(toast =>
+                {toasts.slice(0, maxShown).map(toast =>
                     <ToastWrapper key={toast.id}>
                         {toast.component}
                     </ToastWrapper>
