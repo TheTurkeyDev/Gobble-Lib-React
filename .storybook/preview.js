@@ -2,6 +2,8 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { defaultLightTheme, defaultDarkTheme } from "../src/theme/theme"
 import { Toast } from "../src/toast/toast-context"
 
+import '!style-loader!css-loader!./css/fontawesome-all.min.css'
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
