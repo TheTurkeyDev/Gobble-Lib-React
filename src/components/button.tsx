@@ -32,13 +32,13 @@ const SimpleLoadingSpinner = styled.span<SpinnerProps>`
 
 type ButtonCSS = {
     readonly variant: ButtonVariants
-    readonly disabled?: boolean
 }
 
 const ButtonWrapper = styled.button<ButtonCSS>`
     position: relative;
     align-items: center;
     width: fit-content;
+    min-width: 60px;
     border-radius: 5px;
     padding: 8px 16px;
     background: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.color : 'transparent'};
@@ -60,10 +60,11 @@ type ButtonContentProps = {
 }
 
 const ButtonContent = styled.div<ButtonContentProps>`
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
     gap: ${({ hasGap }) => hasGap ? '8px' : 0};
+    align-content: center;
     align-items: center;
+    justify-content: center;
 `;
 
 const ButtonLoading = styled.div`

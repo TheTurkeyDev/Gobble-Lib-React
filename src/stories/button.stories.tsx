@@ -16,6 +16,7 @@ const ButtonsWrapper = styled.div`
 const Template: ComponentStory<typeof Button> = (args) => <ButtonsWrapper>
     <Button {...args}>Button</Button>
     <Button {...args}></Button>
+    <Button {...args} icon='fa-solid fa-x'></Button>
 </ButtonsWrapper>;
 
 export const button = Template.bind({});
@@ -24,6 +25,7 @@ button.args = {
     variant: 'contained',
     loading: false,
     selected: false,
-    icon: 'fa-solid fa-star'
+    icon: 'fa-solid fa-check',
+    disabled: false
 };
 
