@@ -6,3 +6,4 @@ export * from './horizontal-rule';
 export * from './project-tile';
 export * from './anchor';
 export * from './nav-link';
+export * from './icon';

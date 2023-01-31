@@ -33,6 +33,7 @@ export const DropdownContent = styled.div<DropdownContentProps>`
 
 export const Dropdown = styled.div`
     position: relative;
+    width: max-content;
     &:hover ${DropdownContent} {
         display: grid;
     }

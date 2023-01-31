@@ -10,8 +10,7 @@ export const NavBar = styled.nav`
     background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.color};
     color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
     padding: 8px 12px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
     gap: 32px;
     align-items: center;
     transition: background-color 0.2s, color 0.2s;
