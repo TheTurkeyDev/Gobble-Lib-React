@@ -6,6 +6,6 @@ const StyledIcon = styled.i`
     }
 `;
 type IconProps = React.HTMLAttributes<HTMLElement> & {
-    readonly name: string
+    readonly className: string
 }
-export const Icon = ({ name, ...props }: IconProps) => (<StyledIcon className={name} {...props} />);
+export const Icon = ({ className, ...props }: IconProps) => (<StyledIcon className={className} {...props} />);

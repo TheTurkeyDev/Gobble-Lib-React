@@ -69,7 +69,7 @@ const Template: ComponentStory<typeof NavBar> = (args) => {
             </Dropdown>
         </CollapsibleCenterContent>
         <Dropdown>
-            <Icon name='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
+            <Icon className='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
             <DropdownContent sideAnchor='right'>
                 <LoginButtonWrapper>
                     Login
