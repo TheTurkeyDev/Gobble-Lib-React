@@ -18,7 +18,7 @@ const BigIcon = styled(Icon)`
     font-size: 32px;
 `;
 
-const Template: ComponentStory<typeof Icon> = (args) => <IconsWrapper>
+const Template: ComponentStory<typeof Icon> = args => <IconsWrapper>
     <Icon className={args.className} />
     <BigIcon className={args.className} />
 </IconsWrapper>;

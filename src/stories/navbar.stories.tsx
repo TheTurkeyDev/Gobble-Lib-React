@@ -43,9 +43,9 @@ const links = [
     { title: 'LudumDare', link: 'https://ldjam.com' },
 ];
 
-const Template: ComponentStory<typeof NavBar> = (args) => {
+const Template: ComponentStory<typeof NavBar> = args => {
     return (<NavBar>
-        <CollapsedNavbar icon='fa-solid bars'>
+        <CollapsedNavbar icon='fa-solid fa-bars'>
             <NavText>Home</NavText>
             <NavText>Projects</NavText>
             <NavText>Blog</NavText>

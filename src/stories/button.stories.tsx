@@ -13,7 +13,7 @@ const ButtonsWrapper = styled.div`
     gap: 8px;
 `;
 
-const Template: ComponentStory<typeof Button> = (args) => <ButtonsWrapper>
+const Template: ComponentStory<typeof Button> = args => <ButtonsWrapper>
     <Button {...args}>Button</Button>
     <Button {...args}></Button>
     <Button {...args} icon='fa-solid fa-x'></Button>

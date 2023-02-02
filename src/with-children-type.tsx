@@ -1,5 +1,5 @@
-import { ReactChild } from 'react';
+import { ReactNode } from 'react';
 
 export type WithChildren = {
-    readonly children?: ReactChild | readonly ReactChild[]
+    readonly children?: ReactNode | readonly ReactNode[]
 }

@@ -7,7 +7,7 @@ export default {
     component: Accordion,
 } as ComponentMeta<typeof Accordion>;
 
-const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args}>Content</Accordion>;
+const Template: ComponentStory<typeof Accordion> = args => <Accordion {...args}>Content</Accordion>;
 
 export const accordion = Template.bind({});
 

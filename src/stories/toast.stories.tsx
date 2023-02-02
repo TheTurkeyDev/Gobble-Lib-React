@@ -8,7 +8,7 @@ export default {
     component: TextToast,
 } as ComponentMeta<typeof TextToast>;
 
-const Template: ComponentStory<typeof TextToast> = (args) => {
+const Template: ComponentStory<typeof TextToast> = args => {
     const { pushToast } = useToast();
     return (
         <ContainedButton onClick={() => pushToast(<TextToast text={args.text} />)}>

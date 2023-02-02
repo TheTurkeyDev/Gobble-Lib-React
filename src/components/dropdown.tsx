@@ -10,6 +10,7 @@ type DropdownContentProps = {
 }
 export const DropdownContent = styled.div<DropdownContentProps>`
     position: absolute;
+    width: max-content;
     display: none;
     grid-template-columns : 1fr;
     gap: 8px;
@@ -33,7 +34,6 @@ export const DropdownContent = styled.div<DropdownContentProps>`
 
 export const Dropdown = styled.div`
     position: relative;
-    width: max-content;
     &:hover ${DropdownContent} {
         display: grid;
     }

@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import styled, { ThemeProps } from 'styled-components';
+import { Icon } from '../components';
+import { device } from '../constants/device-sizes';
 import { BaseTheme } from '../theme';
 import { WithChildren } from '../with-children-type';
 
 const CollapsedNavbarWrapper = styled.div`
     position: relative;
+    display: block;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `;
 
 type BarFlyoutProps = {
@@ -35,7 +42,7 @@ export const CollapsedNavbar = ({ children, icon }: CollapsedNavbarProps) => {
     return (
         <CollapsedNavbarWrapper>
             <div>
-                <i className={icon} onClick={() => setExpanded(old => !old)} />
+                <Icon className={icon} onClick={() => setExpanded(old => !old)} />
             </div>
             <BarFlyout shown={expanded}>
                 {children}
