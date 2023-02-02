@@ -14,7 +14,7 @@ export const NavBar = styled.nav`
     gap: 32px;
     align-items: center;
     transition: background-color 0.2s, color 0.2s;
-    flex-grow: 1;
+    width: 100%;
 `;
 
 export const SiteName = styled(Link)`
