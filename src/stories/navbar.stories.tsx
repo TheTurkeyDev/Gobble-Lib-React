@@ -11,6 +11,10 @@ import { TextHoverCss } from '../styling/text-hover-styling';
 import { BaseTheme } from '../theme/turkeydev-theme';
 import { Body1, Headline6Css } from '../typography/typography';
 
+const PageWrapper = styled.div`
+    width: 100%;
+`;
+
 const LoginButtonWrapper = styled(Body1)`
     ${TextHoverCss}
 `;
@@ -44,40 +48,43 @@ const links = [
 ];
 
 const Template: ComponentStory<typeof NavBar> = args => {
-    return (<NavBar>
-        <CollapsedNavbar icon='fa-solid fa-bars'>
-            <NavText>Home</NavText>
-            <NavText>Projects</NavText>
-            <NavText>Blog</NavText>
-            <NavText>Support Me</NavText>
-        </CollapsedNavbar>
-        <SiteName>
-            GobbleLib
-        </SiteName>
-        <CollapsibleCenterContent>
-            <NavText>Home</NavText>
-            <NavText>Projects</NavText>
-            <NavText>Blog</NavText>
-            <NavText>Support Me</NavText>
-            <Dropdown>
-                <NavText> Other Links</NavText>
-                <DropdownContent>
-                    {
-                        links.map(link => <NavText key={link.title}>{link.title}</NavText>)
-                    }
-                </DropdownContent>
-            </Dropdown>
-        </CollapsibleCenterContent>
-        <Dropdown>
-            <Icon className='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
-            <DropdownContent sideAnchor='right'>
-                <LoginButtonWrapper>
-                    Login
-                </LoginButtonWrapper>
-                <TextButton>Light Theme</TextButton>
-            </DropdownContent>
-        </Dropdown>
-    </NavBar>);
+    return (
+        <PageWrapper>
+            <NavBar>
+                <CollapsedNavbar icon='fa-solid fa-bars'>
+                    <NavText>Home</NavText>
+                    <NavText>Projects</NavText>
+                    <NavText>Blog</NavText>
+                    <NavText>Support Me</NavText>
+                </CollapsedNavbar>
+                <SiteName>
+                    GobbleLib
+                </SiteName>
+                <CollapsibleCenterContent>
+                    <NavText>Home</NavText>
+                    <NavText>Projects</NavText>
+                    <NavText>Blog</NavText>
+                    <NavText>Support Me</NavText>
+                    <Dropdown>
+                        <NavText> Other Links</NavText>
+                        <DropdownContent>
+                            {
+                                links.map(link => <NavText key={link.title}>{link.title}</NavText>)
+                            }
+                        </DropdownContent>
+                    </Dropdown>
+                </CollapsibleCenterContent>
+                <Dropdown>
+                    <Icon className='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
+                    <DropdownContent sideAnchor='right'>
+                        <LoginButtonWrapper>
+                            Login
+                        </LoginButtonWrapper>
+                        <TextButton>Light Theme</TextButton>
+                    </DropdownContent>
+                </Dropdown>
+            </NavBar>
+        </PageWrapper>);
 };
 
 export const navbar = Template.bind({});
