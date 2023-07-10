@@ -11,6 +11,7 @@ type ExtraData<T> = {
     readonly error: string | undefined
     readonly setData: React.Dispatch<React.SetStateAction<T | undefined>>
     readonly resetData: () => void;
+    readonly refetch: () => void;
 }
 
 export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readonly [T | undefined, boolean, ExtraData<T>] {
@@ -18,6 +19,9 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
     const [responseData, setResponseData] = useState<T>();
     const [data, setData] = useState<T>();
     const [error, setError] = useState<string>();
+    const [refetchToggle, doRefetch] = useState(false);
+
+    const refetch = () => doRefetch(old => !old);
 
     const resetData = () => {
         setData(responseData);
@@ -58,7 +62,7 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
         return () => {
             controller.abort();
         };
-    }, [options?.skip]);
+    }, [options?.skip, refetchToggle]);
 
-    return [data, fetching, { error, setData, resetData }];
+    return [data, fetching, { error, setData, resetData, refetch }];
 };
