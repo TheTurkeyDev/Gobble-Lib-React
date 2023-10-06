@@ -71,20 +71,18 @@ const InputContainer = styled.div<InputContainerProps>`
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
     readonly label?: string
-    readonly preIcon?: string
-    readonly preIconOnClick?: () => void
-    readonly postIcon?: string
-    readonly postIconOnClick?: () => void
+    readonly prefixContent?: JSX.Element
+    readonly postfixContent?: JSX.Element
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, preIcon, postIcon, preIconOnClick, postIconOnClick, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, prefixContent, postfixContent, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
     return (
         <>
             {label && <Label htmlFor={id}>{label}</Label>}
             <InputContainer disabled={props.disabled ?? false} readOnly={props.readOnly ?? false}>
-                <Icon className={preIcon} clickable={!!preIconOnClick} onClick={preIconOnClick} />
+                {prefixContent}
                 <StyledInput aria-label={`${id}-input`} id={id} ref={ref} {...props} />
-                <Icon className={postIcon} clickable={!!postIconOnClick} onClick={postIconOnClick} />
+                {postfixContent}
             </InputContainer>
         </>
     );
