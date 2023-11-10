@@ -18,7 +18,7 @@ export function useQuery<T>(url: string, options?: AdditionalOptions<T>): readon
         setQuerying(true);
         const reqData = options?.requestData ?? {};
         reqData.body = body;
-        return fetch(`${url}/${pathParams ?? ''}?${queryParams ?? ''}`, reqData)
+        return fetch(`${url}${pathParams ? `/${pathParams}` : ''}${queryParams ? `?${queryParams}` : ''}`, reqData)
             .then(r => r.json().then(data => ({ status: r.status, body: data })))
             .then(({ status, body }) => {
                 setQuerying(false);
