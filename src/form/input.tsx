@@ -56,7 +56,6 @@ const InputContainer = styled.div<InputContainerProps>`
     border: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.outlineLowered};
     height: 36px;
     display: grid;
-    grid-template-columns: auto 1fr auto;
     transition: background-color 0.2s;
     cursor:  ${({ disabled }: GLThemeProps<InputContainerProps>) => disabled ? 'not-allowed' : ''};
 
@@ -79,7 +78,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, pref
     return (
         <>
             {label && <Label htmlFor={id}>{label}</Label>}
-            <InputContainer disabled={props.disabled ?? false} readOnly={props.readOnly ?? false}>
+            <InputContainer disabled={props.disabled ?? false} readOnly={props.readOnly ?? false} style={{gridTemplateColumns: `${prefixContent ? 'auto ' : ' '}1fr ${postfixContent ? 'auto' : ''}`}}>
                 {prefixContent}
                 <StyledInput aria-label={`${id}-input`} id={id} ref={ref} {...props} />
                 {postfixContent}
