@@ -6,14 +6,25 @@ type ConfirmationModalProps = {
     readonly requestClose?: () => void
     readonly text: ReactNode
     readonly yesText: string
+    readonly yesLoading?: boolean
     readonly onYesClick: () => void
     readonly noText: string
+    readonly noLoading?: boolean
     readonly onNoClick: () => void
 }
 
-export const ConfirmationModal = ({ show, requestClose, text, yesText, onYesClick, noText, onNoClick }: ConfirmationModalProps) => {
+export const ConfirmationModal = ({ show, requestClose, text, yesText, yesLoading, onYesClick, noText, noLoading, onNoClick }: ConfirmationModalProps) => {
     return (
-        <DualOptionModal show={show} requestClose={requestClose} primaryText={yesText} onPrimaryClick={onYesClick} secondaryText={noText} onSecondaryClick={onNoClick}>
+        <DualOptionModal
+            show={show}
+            requestClose={requestClose}
+            primaryText={yesText}
+            primaryLoading={yesLoading}
+            onPrimaryClick={onYesClick}
+            secondaryText={noText}
+            secondaryLoading={noLoading}
+            onSecondaryClick={onNoClick}
+        >
             {text}
         </DualOptionModal >
     );

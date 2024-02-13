@@ -20,19 +20,23 @@ type DualOptionModalProps = WithChildren & {
     readonly show: boolean
     readonly requestClose?: () => void
     readonly primaryText: string
+    readonly primaryLoading?: boolean
     readonly onPrimaryClick: () => void
     readonly secondaryText: string
+    readonly secondaryLoading?: boolean
     readonly onSecondaryClick: () => void
 }
 
-export const DualOptionModal = ({ show, requestClose, children, primaryText, onPrimaryClick, secondaryText, onSecondaryClick }: DualOptionModalProps) => {
+export const DualOptionModal = ({ show, requestClose, children, primaryText, primaryLoading, onPrimaryClick, secondaryText, secondaryLoading, onSecondaryClick }: DualOptionModalProps) => {
 
+    const isPrimLoading = primaryLoading ?? false;
+    const isSecLoading = secondaryLoading ?? false;
     return <Modal show={show} requestClose={requestClose}>
         <ContentWrapper>
             {children}
             <ButtonsWrapper>
-                <OutlinedButton onClick={onSecondaryClick}>{secondaryText}</OutlinedButton>
-                <ContainedButton onClick={onPrimaryClick}>{primaryText}</ContainedButton>
+                <OutlinedButton onClick={onSecondaryClick} loading={isSecLoading} disabled={isPrimLoading || isSecLoading}>{secondaryText}</OutlinedButton>
+                <ContainedButton onClick={onPrimaryClick} loading={isPrimLoading} disabled={isPrimLoading || isSecLoading}>{primaryText}</ContainedButton>
             </ButtonsWrapper>
         </ContentWrapper>
     </Modal>;

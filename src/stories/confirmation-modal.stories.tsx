@@ -12,8 +12,10 @@ const Template: ComponentStory<typeof ConfirmationModal> = args => {
             show={args.show}
             text='This is a semi complex test with multiple lints ans stuff'
             yesText={args.yesText}
+            yesLoading={args.yesLoading}
             onYesClick={() => alert(`${args.yesText} clicked!`)}
             noText={args.noText}
+            noLoading={args.noLoading}
             onNoClick={() =>  alert(`${args.noText} clicked!`)} />
     );
 };
@@ -23,6 +25,8 @@ export const confirmationModal = Template.bind({});
 confirmationModal.args = {
     show: true,
     yesText: 'Yes',
-    noText: 'No'
+    noText: 'No',
+    yesLoading: false,
+    noLoading: false,
 };
 
