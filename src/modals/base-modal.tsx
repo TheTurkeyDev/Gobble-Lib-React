@@ -27,6 +27,7 @@ export const ModalContent = styled.div`
     padding: 16px;
     width: fit-content;
     height: fit-content;
+    font-family: ${({ theme }: ThemeProps<BaseTheme>) => theme.fontFamily};
 `;
 
 type ModalProps = WithChildren & {

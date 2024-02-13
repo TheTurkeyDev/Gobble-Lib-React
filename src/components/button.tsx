@@ -50,7 +50,7 @@ const ButtonWrapper = styled.button<ButtonCSS>`
     &:disabled {
         background: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.inputs.colorDisabled : 'transparent'};
         color: ${({ theme }: GLThemeProps<ButtonCSS>) => theme.inputs.onDisabled};
-        border: ${({ theme }: GLThemeProps<ButtonCSS>) => `1px solid ${theme.inputs.colorDisabled}`};
+        border: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'outlined' ? `1px solid ${theme.inputs.colorDisabled}` : 'none'};
         cursor: not-allowed;
     }
 `;

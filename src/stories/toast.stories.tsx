@@ -17,9 +17,9 @@ const Template: ComponentStory<typeof TextToast> = args => {
     );
 };
 
-export const Toast = Template.bind({});
+export const toast = Template.bind({});
 
-Toast.args = {
+toast.args = {
     text: 'Text',
 };
 
