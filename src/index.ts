@@ -10,4 +10,3 @@ export * from './pages';
 export * from './layout';
 export * from './constants';
 export * from './styling';
-export * from './types';
