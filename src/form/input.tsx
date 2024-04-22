@@ -4,17 +4,6 @@ import { Opacity } from '../constants/opacity';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
 
-type IconProps = {
-    readonly clickable: boolean
-}
-const Icon = styled.i<IconProps>`
-    align-self: center;
-    
-    &:hover {
-        cursor: ${({ clickable }) => clickable ? 'pointer' : ''};
-    }
-`;
-
 const StyledInput = styled.input`
     ${Subtitle1Css}
     background: transparent;

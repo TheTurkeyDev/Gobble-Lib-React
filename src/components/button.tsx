@@ -15,13 +15,13 @@ const Rotation = keyframes`
 `;
 
 type SpinnerProps = {
-    readonly variant: ButtonVariants
+    readonly $variant: ButtonVariants
 }
 
 const SimpleLoadingSpinner = styled.span<SpinnerProps>`
     min-width: 16px;
     min-height: 16px;
-    border: 3px solid ${({ variant, theme }) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
+    border: 3px solid ${({ $variant, theme }) => $variant === 'contained' ? theme.primary.on : theme.secondary.color};
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
@@ -30,7 +30,7 @@ const SimpleLoadingSpinner = styled.span<SpinnerProps>`
 `;
 
 type ButtonCSS = {
-    readonly variant: ButtonVariants
+    readonly $variant: ButtonVariants
 }
 
 const ButtonWrapper = styled.button<ButtonCSS>`
@@ -40,16 +40,16 @@ const ButtonWrapper = styled.button<ButtonCSS>`
     min-width: 60px;
     border-radius: 5px;
     padding: 8px 16px;
-    background: ${({ variant, theme }) => variant === 'contained' ? theme.primary.color : 'transparent'};
-    color: ${({ variant, theme }) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
-    border: ${({ variant, theme }) => variant === 'outlined' ? `1px solid ${theme.secondary.color}` : 'none'};
+    background: ${({ $variant, theme }) => $variant === 'contained' ? theme.primary.color : 'transparent'};
+    color: ${({ $variant, theme }) => $variant === 'contained' ? theme.primary.on : theme.secondary.color};
+    border: ${({ $variant, theme }) => $variant === 'outlined' ? `1px solid ${theme.secondary.color}` : 'none'};
 
     ${TextHoverCss}
 
     &:disabled {
-        background: ${({ variant, theme }) => variant === 'contained' ? theme.inputs.colorDisabled : 'transparent'};
+        background: ${({ $variant, theme }) => $variant === 'contained' ? theme.inputs.colorDisabled : 'transparent'};
         color: ${({ theme }) => theme.inputs.onDisabled};
-        border: ${({ variant, theme }) => variant === 'outlined' ? `1px solid ${theme.inputs.colorDisabled}` : 'none'};
+        border: ${({ $variant, theme }) => $variant === 'outlined' ? `1px solid ${theme.inputs.colorDisabled}` : 'none'};
         cursor: not-allowed;
     }
 `;
@@ -81,12 +81,12 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, icon, loading, children, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
-    <ButtonWrapper ref={ref} variant={variant} {...props}>
+    <ButtonWrapper ref={ref} $variant={variant} {...props}>
         {
 
             loading &&
             <ButtonLoading>
-                <SimpleLoadingSpinner variant={variant} />
+                <SimpleLoadingSpinner $variant={variant} />
             </ButtonLoading>
         }
         <ButtonContent hasGap={!!icon && !!children} style={{ opacity: loading ? 0 : 100 }} >

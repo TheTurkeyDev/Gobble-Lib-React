@@ -14,7 +14,7 @@ const CollapsedNavbarWrapper = styled.div`
 `;
 
 type BarFlyoutProps = {
-    readonly shown: boolean
+    readonly $shown: boolean
 }
 
 const BarFlyout = styled.div<BarFlyoutProps>`
@@ -24,7 +24,7 @@ const BarFlyout = styled.div<BarFlyoutProps>`
     position: absolute;
     top: 100%;
     // This is so scuffed, but idk what html/ css wizardry I have to do to be able to push this off screen 100% width, but still look good with "width: max-content"
-    left: ${({ shown }) => shown ? '-12px' : '-500px'};
+    left: ${({ $shown }) => $shown ? '-12px' : '-500px'};
     z-index: 999;
     background-color: ${({ theme }) => theme.navbar.color};
     color: ${({ theme }) => theme.navbar.on};
@@ -43,7 +43,7 @@ export const CollapsedNavbar = ({ children, icon }: CollapsedNavbarProps) => {
             <div>
                 <Icon className={icon} onClick={() => setExpanded(old => !old)} />
             </div>
-            <BarFlyout shown={expanded}>
+            <BarFlyout $shown={expanded}>
                 {children}
             </BarFlyout>
         </CollapsedNavbarWrapper>

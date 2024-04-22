@@ -1,4 +1,4 @@
-import { BaseTheme } from '../theme';
+import { BaseTheme } from '../theme/turkeydev-theme';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions

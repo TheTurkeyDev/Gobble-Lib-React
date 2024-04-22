@@ -17,17 +17,15 @@ const SlideInFromBot = keyframes`
 `;
 
 type ProjectWrapperProps = {
-    readonly size: number
-    readonly backgroundColor?: string
+    readonly $size: number
 };
 const ProjectWrapper = styled.div<ProjectWrapperProps>`
-    background-color: ${({ backgroundColor }) => backgroundColor ?? ''};
-    width: ${({ size }) => size + 10}px;
-    min-width: ${({ size }) => size + 10}px;
-    max-width: ${({ size }) => size + 10}px;
-    height: ${({ size }) => size + 10}px;
-    min-height: ${({ size }) => size + 10}px;
-    max-height:${({ size }) => size + 10}px;
+    width: ${({ $size }) => $size + 10}px;
+    min-width: ${({ $size }) => $size + 10}px;
+    max-width: ${({ $size }) => $size + 10}px;
+    height: ${({ $size }) => $size + 10}px;
+    min-height: ${({ $size }) => $size + 10}px;
+    max-height:${({ $size }) => $size + 10}px;
     position: relative;
     animation: ${SlideInFromBot} 1.5s ease-out;
 
@@ -90,7 +88,7 @@ export const ProjectTile = ({ link, image, title, subtitle, size, backgroundColo
     const sizeToUse = size ?? 190;
 
     return (
-        <ProjectWrapper onClick={onClick} size={sizeToUse} backgroundColor={backgroundColor}>
+        <ProjectWrapper onClick={onClick} $size={sizeToUse} style={{ backgroundColor: backgroundColor ?? '' }}>
             <ProjectImage loading='lazy' src={image} width={sizeToUse} height={sizeToUse} />
             <ProjectName backgroundColor={textBackgroundColor}>
                 <Headline6>{title}</Headline6>
