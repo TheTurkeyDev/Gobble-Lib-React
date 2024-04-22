@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import styled, { css, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Opacity } from '../constants';
-import { BaseTheme } from '../theme';
 import { Subtitle1, Subtitle1Css } from '../typography';
 
 type NavLinkProps = {
@@ -18,11 +17,11 @@ export const NavLink = ({ link, children }: NavLinkProps) => {
 const NavLinkCss = css`
         ${Subtitle1Css}
         padding: 0;
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
+        color: ${({ theme }) => theme.navbar.on};
         text-decoration: none;
 
         &:hover {
-            color: ${({ theme }: ThemeProps<BaseTheme>) => theme.navbar.on};
+            color: ${({ theme }) => theme.navbar.on};
         opacity: ${Opacity.HOVER_NORMAL};
         text-decoration: none;
     }

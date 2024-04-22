@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { GLThemeProps } from '../theme/turkeydev-theme';
 import { TextHoverCss } from '../styling/text-hover-styling';
 import { ButtonText } from '../typography/typography';
 
@@ -22,7 +21,7 @@ type SpinnerProps = {
 const SimpleLoadingSpinner = styled.span<SpinnerProps>`
     min-width: 16px;
     min-height: 16px;
-    border: 3px solid ${({ variant, theme }: GLThemeProps<SpinnerProps>) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
+    border: 3px solid ${({ variant, theme }) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
@@ -41,16 +40,16 @@ const ButtonWrapper = styled.button<ButtonCSS>`
     min-width: 60px;
     border-radius: 5px;
     padding: 8px 16px;
-    background: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.color : 'transparent'};
-    color: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
-    border: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'outlined' ? `1px solid ${theme.secondary.color}` : 'none'};
+    background: ${({ variant, theme }) => variant === 'contained' ? theme.primary.color : 'transparent'};
+    color: ${({ variant, theme }) => variant === 'contained' ? theme.primary.on : theme.secondary.color};
+    border: ${({ variant, theme }) => variant === 'outlined' ? `1px solid ${theme.secondary.color}` : 'none'};
 
     ${TextHoverCss}
 
     &:disabled {
-        background: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'contained' ? theme.inputs.colorDisabled : 'transparent'};
-        color: ${({ theme }: GLThemeProps<ButtonCSS>) => theme.inputs.onDisabled};
-        border: ${({ variant, theme }: GLThemeProps<ButtonCSS>) => variant === 'outlined' ? `1px solid ${theme.inputs.colorDisabled}` : 'none'};
+        background: ${({ variant, theme }) => variant === 'contained' ? theme.inputs.colorDisabled : 'transparent'};
+        color: ${({ theme }) => theme.inputs.onDisabled};
+        border: ${({ variant, theme }) => variant === 'outlined' ? `1px solid ${theme.inputs.colorDisabled}` : 'none'};
         cursor: not-allowed;
     }
 `;

@@ -1,6 +1,5 @@
 import { useState, createContext, useContext } from 'react';
-import styled, { keyframes, ThemeProps } from 'styled-components';
-import { BaseTheme } from '../theme';
+import styled, { keyframes } from 'styled-components';
 import { WithChildren } from '../with-children-type';
 
 const FadeIn = keyframes`
@@ -46,7 +45,7 @@ const ToastWrapper = styled.div`
     border-radius: 25px;
     padding: 16px;
     box-shadow: 7px 7px 25px black;
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
+    background: ${({ theme }) => theme.surface.color};
     animation: ${FadeIn} 0.5s, ${FadeOut} 0.5s 4.6s;
 `;
 

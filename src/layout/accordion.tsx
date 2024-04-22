@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme } from '../theme';
+import styled from 'styled-components';
 import { Subtitle1 } from '../typography';
 import { WithChildren } from '../with-children-type';
 
@@ -13,8 +12,8 @@ const AccordionHeader = styled.div`
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 8px;
-    background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
-    border: 3px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
+    background-color: ${({ theme }) => theme.surface.color};
+    border: 3px solid ${({ theme }) => theme.surface.color};
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     padding: 8px;
@@ -25,7 +24,7 @@ const AccordionHeader = styled.div`
 `;
 
 const AccordionContent = styled.div`
-    border: 3px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
+    border: 3px solid ${({ theme }) => theme.surface.color};
     display: grid;
     grid-template-columns: 1fr;
     padding: 8px;

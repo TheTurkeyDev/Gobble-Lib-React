@@ -1,11 +1,10 @@
-import styled, { css, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FontWeight } from '../constants';
-import { BaseTheme } from '../theme/turkeydev-theme';
 
 const typographyBase = css`
   margin: 0;
-  color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
-  font-family: ${({ theme }: ThemeProps<BaseTheme>) => theme.fontFamily};
+  color: ${({ theme }) => theme.surface.on};
+  font-family: ${({ theme }) => theme.fontFamily};
 `;
 
 export const Headline1 = styled.h1`
@@ -109,7 +108,7 @@ export const Caption = styled.span`
 
 export const ButtonTextCss = css`
   margin: 0;
-  font-family: ${({ theme }: ThemeProps<BaseTheme>) => theme.fontFamily};
+  font-family: ${({ theme }) => theme.fontFamily};
   font-weight: ${FontWeight.MEDIUM};
   font-size: 14px;
   line-height: 20px;

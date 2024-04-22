@@ -1,17 +1,16 @@
 import React from 'react';
-import styled, { ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 import { Opacity } from '../constants/opacity';
-import { BaseTheme } from '../theme/turkeydev-theme';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
 
 const SelectWrapper = styled.select`
     ${Subtitle1Css}
-    background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.color};
-    color:  ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.on};
+    background-color: ${({ theme }) => theme.inputs.color};
+    color:  ${({ theme }) => theme.inputs.on};
     padding: 0 12px 0 16px;
     border-radius: 4px;
-    border: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.outlineLowered};
+    border: 1px solid ${({ theme }) => theme.inputs.outlineLowered};
     height: 36px;
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -22,8 +21,8 @@ const SelectWrapper = styled.select`
     }
 
     &:disabled {
-        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.colorDisabled};
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.onDisabled};
+        background: ${({ theme }) => theme.inputs.colorDisabled};
+        color: ${({ theme }) => theme.inputs.onDisabled};
         cursor: not-allowed;
     }
 `;
@@ -59,7 +58,7 @@ export const Option = styled.option`
     ${Subtitle1Css}
     
     &:checked {
-        background: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
+        background: ${({ theme }) => theme.primary.color};
+        color: ${({ theme }) => theme.primary.on};
     }
 `;

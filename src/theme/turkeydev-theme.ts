@@ -1,5 +1,3 @@
-import { ThemedStyledProps } from 'styled-components';
-
 export type BaseTheme = {
   readonly fontFamily: string,
   readonly background: {
@@ -36,5 +34,3 @@ export type BaseTheme = {
     readonly on: string
   }
 }
-
-export type GLThemeProps<P> = ThemedStyledProps<P, BaseTheme>;

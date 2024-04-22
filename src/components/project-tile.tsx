@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import styled, { keyframes, ThemeProps } from 'styled-components';
-import { BaseTheme } from '../theme';
+import styled, { keyframes } from 'styled-components';
 import { Headline6, Subtitle2 } from '../typography/typography';
 
 const SlideInFromBot = keyframes`
@@ -66,12 +65,6 @@ const ProjectImage = styled.img`
     ${ProjectWrapper}:hover & {
         opacity: 0.2;
     }
-`;
-
-const IconWrapper = styled.i`
-    margin-top: 8px;
-    font-size: 128px;
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
 `;
 
 type ProjectTileProps = {

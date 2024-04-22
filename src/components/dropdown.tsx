@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import styled, { ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 import { Elevation } from '../constants';
-import { BaseTheme } from '../theme';
 import { Subtitle1Css } from '../typography';
 import { TextHoverCss } from '../styling/text-hover-styling';
 
@@ -15,7 +14,7 @@ export const DropdownContent = styled.div<DropdownContentProps>`
     grid-template-columns : 1fr;
     gap: 8px;
     white-space: nowrap;
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
+    background: ${({ theme }) => theme.surface.color};
     z-index: 2;
     padding: 8px 16px;
     box-shadow: ${Elevation.low};
@@ -23,11 +22,11 @@ export const DropdownContent = styled.div<DropdownContentProps>`
     right: ${({ sideAnchor }) => sideAnchor === 'right' ? 0 : ''};
     
     & > * {
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+        color: ${({ theme }) => theme.surface.on};
         text-decoration: none;
         ${TextHoverCss}
         &:hover{
-            color: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+            color: ${({ theme }) => theme.surface.on};
         }
     }
 `;

@@ -1,12 +1,11 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
-import { Button } from '../components/button';
 import { Icon } from '../components/icon';
 
 export default {
     title: 'GobbleLib/Component/Icon',
     component: Icon,
-} as ComponentMeta<typeof Icon>;
+} as Meta<typeof Icon>;
 
 const IconsWrapper = styled.div`
     display: grid;
@@ -18,14 +17,13 @@ const BigIcon = styled(Icon)`
     font-size: 32px;
 `;
 
-const Template: ComponentStory<typeof Icon> = args => <IconsWrapper>
-    <Icon className={args.className} />
-    <BigIcon className={args.className} />
-</IconsWrapper>;
-
-export const icon = Template.bind({});
-
-icon.args = {
-    className: 'fa-solid fa-circle-user',
+export const Template: StoryObj<typeof Icon> = {
+    args: {
+        className: 'fa-solid fa-circle-user',
+    },
+    render: args => <IconsWrapper>
+        <Icon className={args.className} />
+        <BigIcon className={args.className} />
+    </IconsWrapper>
 };
 

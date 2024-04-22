@@ -4,7 +4,7 @@ import babel from '@rollup/plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import dts from "rollup-plugin-dts";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import { terser } from "rollup-plugin-terser";
+import terser from '@rollup/plugin-terser';
 
 const packageJson = require("./package.json");
 const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
@@ -49,6 +49,6 @@ export default [
     {
         input: "dist/esm/index.d.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
-        plugins: [dts()],
+        plugins: [dts.default()],
     },
 ];

@@ -1,8 +1,7 @@
 import { createRef } from 'react';
-import styled, { ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 import { Elevation } from '../constants/elevation';
 import { useClickOutside } from '../custom-hooks/use-click-outside';
-import { BaseTheme } from '../theme/turkeydev-theme';
 import { WithChildren } from '../with-children-type';
 
 export const BackgroundWrapper = styled.div`
@@ -19,15 +18,15 @@ export const BackgroundWrapper = styled.div`
 `;
 
 export const ModalContent = styled.div`
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.background.color};
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.background.on};
+    background: ${({ theme }) => theme.background.color};
+    color: ${({ theme }) => theme.background.on};
     box-shadow: ${Elevation.highest};
     filter: blur(0);
     border-radius: 15px;
     padding: 16px;
     width: fit-content;
     height: fit-content;
-    font-family: ${({ theme }: ThemeProps<BaseTheme>) => theme.fontFamily};
+    font-family: ${({ theme }) => theme.fontFamily};
 `;
 
 type ModalProps = WithChildren & {

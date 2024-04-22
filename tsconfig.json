@@ -22,7 +22,12 @@
             "dom",
             "dom.iterable",
             "esnext"
-        ]
+        ],
+        "paths": {
+            "*": [
+                "./src/types/*"
+            ]
+        },
     },
     "include": [
         "./src"

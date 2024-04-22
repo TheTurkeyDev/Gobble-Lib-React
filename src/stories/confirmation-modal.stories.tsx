@@ -1,13 +1,20 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Body1, ConfirmationModal } from '..';
+import { Meta, StoryObj } from '@storybook/react';
+import { ConfirmationModal } from '..';
 
 export default {
     title: 'GobbleLib/Modal',
     component: ConfirmationModal,
-} as ComponentMeta<typeof ConfirmationModal>;
+} as Meta<typeof ConfirmationModal>;
 
-const Template: ComponentStory<typeof ConfirmationModal> = args => {
-    return (
+export const Template: StoryObj<typeof ConfirmationModal> = {
+    args: {
+        show: true,
+        yesText: 'Yes',
+        noText: 'No',
+        yesLoading: false,
+        noLoading: false,
+    },
+    render: args => (
         <ConfirmationModal
             show={args.show}
             text='This is a semi complex test with multiple lints ans stuff'
@@ -16,17 +23,6 @@ const Template: ComponentStory<typeof ConfirmationModal> = args => {
             onYesClick={() => alert(`${args.yesText} clicked!`)}
             noText={args.noText}
             noLoading={args.noLoading}
-            onNoClick={() =>  alert(`${args.noText} clicked!`)} />
-    );
+            onNoClick={() => alert(`${args.noText} clicked!`)} />
+    )
 };
-
-export const confirmationModal = Template.bind({});
-
-confirmationModal.args = {
-    show: true,
-    yesText: 'Yes',
-    noText: 'No',
-    yesLoading: false,
-    noLoading: false,
-};
-

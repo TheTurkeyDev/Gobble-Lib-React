@@ -1,6 +1,5 @@
 
-import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme } from '../theme';
+import styled from 'styled-components';
 import { Label } from './label';
 
 
@@ -18,7 +17,7 @@ const Slider = styled.span`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.color};
+    background-color: ${({ theme }) => theme.inputs.color};
     transition: .4s;
     border-radius: 34px;
 
@@ -29,7 +28,7 @@ const Slider = styled.span`
         width: 26px;
         left: 4px;
         bottom: 4px;
-        background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.inputs.on};
+        background-color: ${({ theme }) => theme.inputs.on};
         transition: .4s;
         border-radius: 50%;
     }
@@ -41,11 +40,11 @@ const SliderInput = styled.input`
     height: 0;
 
     &:checked+${Slider} {
-        background-color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
+        background-color: ${({ theme }) => theme.primary.color};
     }
         
     &:focus+${Slider} {
-        box-shadow: 0 0 1px ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.color};
+        box-shadow: 0 0 1px ${({ theme }) => theme.primary.color};
     }
 
     &:checked+${Slider}:before {

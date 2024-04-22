@@ -1,9 +1,8 @@
-import styled, { ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 import { Elevation } from '../constants';
-import { BaseTheme } from '../theme';
 
 export const Card = styled.div`
-    background: ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.color};
+    background: ${({ theme }) => theme.surface.color};
     border-radius: 8px;
     padding: 0 0 32px 0;
     display: grid;

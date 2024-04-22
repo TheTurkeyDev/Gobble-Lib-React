@@ -1,5 +1,4 @@
-import styled, { ThemeProps } from 'styled-components';
-import { BaseTheme } from '../theme/turkeydev-theme';
+import styled from 'styled-components';
 import { Body1Css, Subtitle1Css } from '../typography/typography';
 
 export type TableProps = React.TableHTMLAttributes<HTMLTableElement> & {
@@ -22,12 +21,12 @@ export const Table = styled.table<TableProps>`
     }
 
     & th {
-        border-bottom: 2px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+        border-bottom: 2px solid ${({ theme }) => theme.surface.on};
         padding: 8px;
     }
 
     & tr {
-        border-top: 1px solid ${({ theme }: ThemeProps<BaseTheme>) => theme.surface.on};
+        border-top: 1px solid ${({ theme }) => theme.surface.on};
         display: ${({ tableColumns }) => !!tableColumns ? 'contents' : ''};
     }
 

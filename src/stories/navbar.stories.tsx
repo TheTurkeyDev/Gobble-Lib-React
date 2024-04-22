@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import styled, { ThemeProps } from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
+import styled from 'styled-components';
 import { TextButton } from '../components/button';
 import { Dropdown, DropdownContent } from '../components/dropdown';
 import { Icon } from '../components/icon';
@@ -8,7 +8,6 @@ import { Opacity } from '../constants/opacity';
 import { CollapsedNavbar } from '../layout/collapsed-navbar';
 import { CollapsibleCenterContent, NavBar } from '../layout/navbar';
 import { TextHoverCss } from '../styling/text-hover-styling';
-import { BaseTheme } from '../theme/turkeydev-theme';
 import { Body1, Headline6Css } from '../typography/typography';
 
 const PageWrapper = styled.div`
@@ -21,14 +20,14 @@ const LoginButtonWrapper = styled(Body1)`
 
 const SiteName = styled(NavText)`
     ${Headline6Css}
-    color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
+    color: ${({ theme }) => theme.primary.on};
     text-decoration: none;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
     white-space: nowrap;
 
     &:hover {
-        color: ${({ theme }: ThemeProps<BaseTheme>) => theme.primary.on};
+        color: ${({ theme }) => theme.primary.on};
         opacity: ${Opacity.HOVER_NORMAL};
         text-decoration: none;
     }
@@ -37,7 +36,7 @@ const SiteName = styled(NavText)`
 export default {
     title: 'GobbleLib/Layout',
     component: NavBar,
-} as ComponentMeta<typeof NavBar>;
+} as Meta<typeof NavBar>;
 
 const links = [
     { title: 'Twitch', link: 'https://trky.dev/twitch' },
@@ -47,8 +46,9 @@ const links = [
     { title: 'LudumDare', link: 'https://ldjam.com' },
 ];
 
-const Template: ComponentStory<typeof NavBar> = args => {
-    return (
+export const Template: StoryObj<typeof NavBar> = {
+    args: {},
+    render: args => (
         <PageWrapper>
             <NavBar>
                 <CollapsedNavbar icon='fa-solid fa-bars'>
@@ -84,9 +84,6 @@ const Template: ComponentStory<typeof NavBar> = args => {
                     </DropdownContent>
                 </Dropdown>
             </NavBar>
-        </PageWrapper>);
+        </PageWrapper>
+    ),
 };
-
-export const navbar = Template.bind({});
-
-navbar.args = {};
