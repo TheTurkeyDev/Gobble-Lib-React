@@ -55,12 +55,12 @@ const ButtonWrapper = styled.button<ButtonCSS>`
 `;
 
 type ButtonContentProps = {
-    readonly hasGap: boolean
+    readonly $hasGap: boolean
 }
 
 const ButtonContent = styled.div<ButtonContentProps>`
     display: flex;
-    gap: ${({ hasGap }) => hasGap ? '8px' : 0};
+    gap: ${({ $hasGap }) => $hasGap ? '8px' : 0};
     align-content: center;
     align-items: center;
     justify-content: center;
@@ -89,7 +89,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, ico
                 <SimpleLoadingSpinner $variant={variant} />
             </ButtonLoading>
         }
-        <ButtonContent hasGap={!!icon && !!children} style={{ opacity: loading ? 0 : 100 }} >
+        <ButtonContent $hasGap={!!icon && !!children} style={{ opacity: loading ? 0 : 100 }} >
             <i className={icon} />
             <ButtonText>
                 {children}

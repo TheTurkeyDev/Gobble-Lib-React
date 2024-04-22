@@ -76,7 +76,7 @@ export const Template: StoryObj<typeof NavBar> = {
                 </CollapsibleCenterContent>
                 <Dropdown>
                     <Icon className='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
-                    <DropdownContent sideAnchor='right'>
+                    <DropdownContent $sideAnchor='right'>
                         <LoginButtonWrapper>
                             Login
                         </LoginButtonWrapper>
