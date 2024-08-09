@@ -83,7 +83,6 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ variant, icon, loading, children, ...props }: ButtonProps, ref: React.Ref<HTMLButtonElement>) => (
     <ButtonWrapper ref={ref} $variant={variant} {...props}>
         {
-
             loading &&
             <ButtonLoading>
                 <SimpleLoadingSpinner $variant={variant} />

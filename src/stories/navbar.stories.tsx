@@ -34,7 +34,7 @@ const SiteName = styled(NavText)`
 `;
 
 export default {
-    title: 'GobbleLib/Layout',
+    title: 'GobbleLib/Layout/Navbar',
     component: NavBar,
 } as Meta<typeof NavBar>;
 
@@ -76,7 +76,7 @@ export const Template: StoryObj<typeof NavBar> = {
                 </CollapsibleCenterContent>
                 <Dropdown>
                     <Icon className='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
-                    <DropdownContent $sideAnchor='right'>
+                    <DropdownContent sideAnchor='right'>
                         <LoginButtonWrapper>
                             Login
                         </LoginButtonWrapper>

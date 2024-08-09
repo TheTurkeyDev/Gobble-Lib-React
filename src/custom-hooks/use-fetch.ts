@@ -4,7 +4,7 @@ type AdditionalOptions<T> = {
     readonly requestData?: RequestInit
     readonly skip?: boolean
     readonly onComplete?: (data: T) => void
-    readonly onError?: (message: String) => void
+    readonly onError?: (message: string) => void
 }
 
 type ExtraData<T> = {

@@ -5,7 +5,7 @@ import { Subtitle1Css } from '../typography';
 import { TextHoverCss } from '../styling/text-hover-styling';
 
 type DropdownContentProps = {
-    readonly $sideAnchor?: string
+    readonly sideAnchor?: string
 }
 export const DropdownContent = styled.div<DropdownContentProps>`
     position: absolute;
@@ -18,8 +18,8 @@ export const DropdownContent = styled.div<DropdownContentProps>`
     z-index: 2;
     padding: 8px 16px;
     box-shadow: ${Elevation.low};
-    left: ${({ $sideAnchor }) => $sideAnchor === 'left' ? 0 : ''};
-    right: ${({ $sideAnchor }) => $sideAnchor === 'right' ? 0 : ''};
+    left: ${({ sideAnchor }) => sideAnchor === 'left' ? 0 : ''};
+    right: ${({ sideAnchor }) => sideAnchor === 'right' ? 0 : ''};
     
     & > * {
         color: ${({ theme }) => theme.surface.on};
