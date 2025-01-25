@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { Opacity } from '../constants';
 import { Subtitle1, Subtitle1Css } from '../typography';
+import { JSX } from 'react';
 
 type NavLinkProps = {
     readonly link: string

@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, JSX } from 'react';
 import styled from 'styled-components';
 import { Opacity } from '../constants/opacity';
 import { Subtitle1Css } from '../typography/typography';

@@ -1,7 +1,7 @@
 import { RefObject, useEffect } from 'react';
 
 // Improved version of https://usehooks.com/useOnClickOutside/
-export const useClickOutside = (ref: RefObject<HTMLDivElement>, handler: (event: MouseEvent) => void) => {
+export const useClickOutside = (ref: RefObject<HTMLDivElement | null>, handler: (event: MouseEvent) => void) => {
     useEffect(() => {
         // Can probably be made states?
         // eslint-disable-next-line functional/no-let

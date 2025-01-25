@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, JSX } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { WithChildren } from '../with-children-type';
 

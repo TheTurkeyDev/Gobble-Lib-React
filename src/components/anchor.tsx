@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { FontWeight } from '../constants/font-weight';
 import { Body1, Body1Css } from '../typography';
 import { TextHoverCss } from '../styling/text-hover-styling';
+import { JSX } from 'react';
 
 export const StyledAnchor = styled.a`
     ${Body1Css}

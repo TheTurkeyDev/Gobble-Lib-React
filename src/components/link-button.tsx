@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FontWeight } from '../constants/font-weight';
 import { Body1, Body1Css } from '../typography/typography';
 import { TextHoverCss } from '../styling/text-hover-styling';
+import { JSX } from 'react';
 
 export const StyledLinkButton = styled(Link)`
     ${Body1Css}

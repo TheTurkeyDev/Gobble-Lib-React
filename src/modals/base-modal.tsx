@@ -35,7 +35,7 @@ type ModalProps = WithChildren & {
 }
 
 export const Modal = ({ show, requestClose, children }: ModalProps) => {
-    const ref = createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement | null>();
     useClickOutside(ref, () => !!requestClose && requestClose());
     return show ? (
         <BackgroundWrapper>

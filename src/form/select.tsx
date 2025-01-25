@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from 'styled-components';
 import { Opacity } from '../constants/opacity';
 import { Subtitle1Css } from '../typography/typography';
