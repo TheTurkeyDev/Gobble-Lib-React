@@ -9,22 +9,30 @@ type AdditionalOptions<T> = {
 
 type ExtraData<T> = {
     readonly error: string | undefined
-    readonly setData: React.Dispatch<React.SetStateAction<T | undefined>>
+    readonly setData: (t: T) => void; 
     readonly resetData: () => void;
     readonly refetch: () => void;
+    readonly isDirty: boolean
 }
 
 export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readonly [T | undefined, boolean, ExtraData<T>] {
     const [fetching, setFetching] = useState(false);
     const [responseData, setResponseData] = useState<T>();
-    const [data, setData] = useState<T>();
+    const [data, setCurrentData] = useState<T>();
     const [error, setError] = useState<string>();
     const [refetchToggle, doRefetch] = useState(false);
+    const [isDirty, setDirty] = useState<boolean>(false);
 
     const refetch = () => doRefetch(old => !old);
 
     const resetData = () => {
-        setData(responseData);
+        setCurrentData(responseData);
+        setDirty(false);
+    };
+
+    const setData = (d: T) => {
+        setCurrentData(d);
+        setDirty(true);
     };
 
     useEffect(() => {
@@ -64,5 +72,5 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
         };
     }, [options?.skip, refetchToggle]);
 
-    return [data, fetching, { error, setData, resetData, refetch }];
+    return [data, fetching, { error, setData, resetData, refetch, isDirty }];
 };

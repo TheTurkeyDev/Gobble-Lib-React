@@ -111,3 +111,8 @@ export const OutlinedButton = (props: ButtonVariantProps) => (
 export const TextButton = (props: ButtonVariantProps) => (
     <Button variant='text'{...props} />
 );
+
+export const DangerButton = styled(ContainedButton)`
+    background-color: ${({ theme }) => theme.error.color};
+    color: ${({ theme }) => theme.error.on};
+`;
