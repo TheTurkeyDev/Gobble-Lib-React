@@ -4,6 +4,7 @@ import { Toast } from "../src/toast/toast-context"
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import './css/fontawesome-all.min.css'
+import { BrowserRouter } from 'react-router-dom';
 
 const customViewports = {
   mobileSmall: {
@@ -58,7 +59,7 @@ const customViewports = {
 };
 
 export const parameters = {
-  actions: {  },
+  actions: {},
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -113,7 +114,9 @@ export const decorators = [
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Toast>
-          <Story />
+          <BrowserRouter>
+            <Story />
+          </BrowserRouter>
         </Toast>
       </ThemeProvider>
     );

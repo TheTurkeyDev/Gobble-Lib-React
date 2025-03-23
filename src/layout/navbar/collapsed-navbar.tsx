@@ -31,14 +31,15 @@ const BarFlyout = styled.div`
 
 type CollapsedNavbarProps = WithChildren & {
     readonly icon: string
+    readonly expanded: boolean
+    readonly toggleExpand: () => void
 }
 
-export const CollapsedNavbar = ({ children, icon }: CollapsedNavbarProps) => {
-    const [expanded, setExpanded] = useState(false);
+export const CollapsedNavbar = ({ children, icon, expanded, toggleExpand }: CollapsedNavbarProps) => {
     return (
         <CollapsedNavbarWrapper>
             <div>
-                <Icon className={icon} onClick={() => setExpanded(old => !old)} />
+                <Icon className={icon} onClick={toggleExpand} />
             </div>
             <BarFlyout style={{ display: expanded ? 'flex' : 'none' }}>
                 {children}

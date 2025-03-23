@@ -10,6 +10,8 @@ import { CollapsibleCenterContent, NavBar } from '../layout/navbar/navbar';
 import { TextHoverCss } from '../styling/text-hover-styling';
 import { Body1, Headline6Css } from '../typography/typography';
 import { CollapsedNavLink } from '../layout';
+import { CollapsedDropDown } from '../layout/navbar/collapsed-dropdown';
+import { useState } from 'react';
 
 const PageWrapper = styled.div`
     width: 100%;
@@ -49,42 +51,54 @@ const links = [
 
 export const Template: StoryObj<typeof NavBar> = {
     args: {},
-    render: () => (
-        <PageWrapper>
-            <NavBar>
-                <CollapsedNavbar icon='fa-solid fa-bars'>
-                    <CollapsedNavLink text='Home' to=''/>
-                    <CollapsedNavLink text='Projects' to=''/>
-                    <CollapsedNavLink text='Blog' to=''/>
-                    <CollapsedNavLink text='Support Me' to=''/>
-                </CollapsedNavbar>
-                <SiteName>
-                    GobbleLib
-                </SiteName>
-                <CollapsibleCenterContent>
-                    <NavText>Home</NavText>
-                    <NavText>Projects</NavText>
-                    <NavText>Blog</NavText>
-                    <NavText>Support Me</NavText>
+    render: () => {
+
+        const [expanded, setExpanded] = useState(false);
+        return (
+            <PageWrapper>
+                <NavBar>
+                    <CollapsedNavbar icon='fa-solid fa-bars' expanded={expanded} toggleExpand={() => setExpanded(old => !old)}>
+                        <CollapsedNavLink text='Home' to='' />
+                        <CollapsedDropDown
+                            text='Projects'
+                            options={{
+                                'Stream Tools': '',
+                                'Web Apps': '',
+                                'Mods': '',
+                                'Games': '',
+                            }}
+                            closeNav={() => setExpanded(false)} />
+                        <CollapsedNavLink text='Blog' to='' />
+                        <CollapsedNavLink text='Support Me' to='' />
+                    </CollapsedNavbar>
+                    <SiteName>
+                        GobbleLib
+                    </SiteName>
+                    <CollapsibleCenterContent>
+                        <NavText>Home</NavText>
+                        <NavText>Projects</NavText>
+                        <NavText>Blog</NavText>
+                        <NavText>Support Me</NavText>
+                        <Dropdown>
+                            <NavText> Other Links</NavText>
+                            <DropdownContent>
+                                {
+                                    links.map(link => <NavText key={link.title}>{link.title}</NavText>)
+                                }
+                            </DropdownContent>
+                        </Dropdown>
+                    </CollapsibleCenterContent>
                     <Dropdown>
-                        <NavText> Other Links</NavText>
-                        <DropdownContent>
-                            {
-                                links.map(link => <NavText key={link.title}>{link.title}</NavText>)
-                            }
+                        <Icon className='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
+                        <DropdownContent sideAnchor='right'>
+                            <LoginButtonWrapper>
+                                Login
+                            </LoginButtonWrapper>
+                            <TextButton>Light Theme</TextButton>
                         </DropdownContent>
                     </Dropdown>
-                </CollapsibleCenterContent>
-                <Dropdown>
-                    <Icon className='fa-solid fa-circle-user' style={{ fontSize: '32px' }} />
-                    <DropdownContent sideAnchor='right'>
-                        <LoginButtonWrapper>
-                            Login
-                        </LoginButtonWrapper>
-                        <TextButton>Light Theme</TextButton>
-                    </DropdownContent>
-                </Dropdown>
-            </NavBar>
-        </PageWrapper>
-    ),
+                </NavBar>
+            </PageWrapper>
+        );
+    },
 };
