@@ -5,10 +5,11 @@ import { Dropdown, DropdownContent } from '../components/dropdown';
 import { Icon } from '../components/icon';
 import { NavText } from '../components/nav-link';
 import { Opacity } from '../constants/opacity';
-import { CollapsedNavbar } from '../layout/collapsed-navbar';
-import { CollapsibleCenterContent, NavBar } from '../layout/navbar';
+import { CollapsedNavbar } from '../layout/navbar/collapsed-navbar';
+import { CollapsibleCenterContent, NavBar } from '../layout/navbar/navbar';
 import { TextHoverCss } from '../styling/text-hover-styling';
 import { Body1, Headline6Css } from '../typography/typography';
+import { CollapsedNavLink } from '../layout';
 
 const PageWrapper = styled.div`
     width: 100%;
@@ -48,14 +49,14 @@ const links = [
 
 export const Template: StoryObj<typeof NavBar> = {
     args: {},
-    render: args => (
+    render: () => (
         <PageWrapper>
             <NavBar>
                 <CollapsedNavbar icon='fa-solid fa-bars'>
-                    <NavText>Home</NavText>
-                    <NavText>Projects</NavText>
-                    <NavText>Blog</NavText>
-                    <NavText>Support Me</NavText>
+                    <CollapsedNavLink text='Home' to=''/>
+                    <CollapsedNavLink text='Projects' to=''/>
+                    <CollapsedNavLink text='Blog' to=''/>
+                    <CollapsedNavLink text='Support Me' to=''/>
                 </CollapsedNavbar>
                 <SiteName>
                     GobbleLib

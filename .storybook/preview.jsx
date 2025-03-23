@@ -100,6 +100,7 @@ const GlobalStyles = createGlobalStyle`
         background: ${({ theme }) => theme.background.color};
         color: ${({ theme }) => theme.background.on};
         transition: .25s;
+        padding: 0 !important;
     }
 `;
 

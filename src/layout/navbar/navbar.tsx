@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Opacity } from '../constants';
-import { device } from '../constants/device-sizes';
-import { Headline6Css } from '../typography/typography';
-import { WithChildren } from '../with-children-type';
+import { Headline6Css } from '../../typography';
+import { device, Opacity } from '../../constants';
+import { WithChildren } from '../../with-children-type';
 
 export const NavBar = styled.nav`
     background-color: ${({ theme }) => theme.navbar.color};
