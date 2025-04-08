@@ -2,6 +2,7 @@ import { styled, useTheme } from 'styled-components';
 import { Icon } from '../../components/icon';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Body1, Body2 } from '../../typography';
 
 const StyledCollapsedDropDown = styled.div`
     width: 100%;
@@ -42,6 +43,18 @@ const OptionLine = styled.div`
     align-items: center;
 `;
 
+const Text = styled(Body1)`
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+`;
+
+const Text2 = styled(Body2)`
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+`;
+
 type CollapsedDropDownProps = {
     readonly text: string
     readonly options: { readonly [key: string]: string }
@@ -65,13 +78,17 @@ export const CollapsedDropDown = ({ text, options, closeNav }: CollapsedDropDown
         <StyledCollapsedDropDown onClick={() => setExpanded(old => !old)}>
             <MainOption>
                 <div />
-                <NavLinkBase style={{ color: expanded ? theme.primary.color : theme.navbar.on }}>{text}</NavLinkBase>
+                <NavLinkBase style={{ color: expanded ? theme.primary.color : theme.navbar.on }}>
+                    <Text>{text}</Text>
+                </NavLinkBase>
                 <Icon className={expanded ? 'fas fa-minus' : 'fas fa-plus'} />
             </MainOption>
             <OptionsWrapper style={{ height: expanded ? 'fit-content' : '0' }}>
                 {
                     Object.keys(options).map(o => (
-                        <OptionLine key={o} onClick={goTo(options[o])}>{o}</OptionLine>
+                        <OptionLine key={o} onClick={goTo(options[o])}>
+                            <Text2>{o}</Text2>
+                        </OptionLine>
                     ))
                 }
             </OptionsWrapper>

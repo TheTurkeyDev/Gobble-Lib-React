@@ -2,6 +2,7 @@ export * from './card';
 export * from './navbar/navbar';
 export * from './navbar/collapsed-navbar';
 export * from './navbar/collapsed-nav-link';
+export * from './navbar/collapsed-dropdown';
 export * from './space-between';
 export * from './table';
 export * from './button-row';

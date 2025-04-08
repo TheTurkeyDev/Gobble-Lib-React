@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 
 const Anchor = styled.a`
     text-decoration: none;
+    width: max-content;
 `;
 
 const Text = styled(Body1)`
