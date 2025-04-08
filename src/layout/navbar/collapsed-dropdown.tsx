@@ -47,12 +47,14 @@ const Text = styled(Body1)`
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
+    text-wrap: nowrap;
 `;
 
 const Text2 = styled(Body2)`
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
+    text-wrap: nowrap;
 `;
 
 type CollapsedDropDownProps = {
