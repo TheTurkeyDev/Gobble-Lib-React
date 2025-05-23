@@ -9,7 +9,7 @@ type AdditionalOptions<T> = {
 
 type ExtraData<T> = {
     readonly error: string | undefined
-    readonly setData: (t: T) => void; 
+    readonly setData: (t: T) => void;
     readonly resetData: () => void;
     readonly refetch: () => void;
     readonly isDirty: boolean
@@ -48,7 +48,7 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
 
         setFetching(true);
         fetch(url, init)
-            .then(r => r.json().then(data => ({ status: r.status, body: data })).catch(e => ({ status: r.status, body: null })))
+            .then(r => r.json().then(data => ({ status: r.status, body: data })).catch(() => ({ status: r.status, body: null })))
             .then(({ status, body }) => {
                 if (status === 200) {
                     options?.onComplete && options?.onComplete(body as T);
@@ -62,6 +62,10 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
 
                 setFetching(false);
             }).catch(e => {
+                if (e.name === 'AbortError') {
+                    //Ignore
+                    return;
+                }
                 console.log(e);
                 setError('An error has occurred!');
                 setFetching(false);
