@@ -20,7 +20,7 @@ export const StyledLinkButton = styled(Link)`
 
 export const DisabledLinkButton = styled(Body1)`
     text-decoration: none;
-    background-color:${({ theme }) => theme.outline};
+    background-color:${({ theme }) => theme.inputs.colorDisabled};
     font-weight: ${FontWeight.MEDIUM};
     cursor: not-allowed;
 `;
