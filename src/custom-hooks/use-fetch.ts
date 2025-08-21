@@ -11,7 +11,7 @@ type ExtraData<T> = {
     readonly error: string | undefined
     readonly setData: (t: T) => void;
     readonly resetData: () => void;
-    readonly refetch: () => void;
+    readonly refetch: (newData?: T) => void;
     readonly isDirty: boolean
 }
 
