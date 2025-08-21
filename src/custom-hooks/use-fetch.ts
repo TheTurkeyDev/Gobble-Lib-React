@@ -25,8 +25,10 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
 
     const refetch = () => doRefetch(old => !old);
 
-    const resetData = () => {
-        setCurrentData(responseData);
+    const resetData = (newData?: T) => {
+        setCurrentData(newData ?? responseData);
+        if(newData)
+            setResponseData(newData)
         setDirty(false);
     };
 
