@@ -54,7 +54,7 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
             .then(({ status, body }) => {
                 if (status === 200) {
                     options?.onComplete && options?.onComplete(body as T);
-                    setData(body as T);
+                    setCurrentData(body as T);
                     setResponseData(body as T);
                 }
                 else {
