@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { JSX, useState } from 'react';
 import styled from 'styled-components';
 import { Subtitle1 } from '../typography';
 import { WithChildren } from '../with-children-type';
@@ -31,17 +31,21 @@ const AccordionContent = styled.div`
 `;
 
 type AccordionProps = WithChildren & React.InputHTMLAttributes<HTMLDivElement> & {
-    readonly header: string
+    /**
+     * @deprecated This prop is deprecated. Please use `headerContent` instead.
+     */
+    readonly header?: string
+    readonly headerContent?: JSX.Element
     readonly defaultShow?: boolean
 }
 
-export const Accordion = ({ children, header, defaultShow = false, ...props }: AccordionProps) => {
+export const Accordion = ({ children, header, headerContent, defaultShow = false, ...props }: AccordionProps) => {
     const [collapsed, setCollapsed] = useState(!defaultShow);
 
     return (
         <AccordionWrapper {...props}>
             <AccordionHeader onClick={() => setCollapsed(!collapsed)}>
-                <Subtitle1>{header}</Subtitle1>
+                {headerContent ? headerContent : <Subtitle1>{header}</Subtitle1>}
                 <Subtitle1>{collapsed ? '+' : '-'}</Subtitle1>
             </AccordionHeader>
             {
