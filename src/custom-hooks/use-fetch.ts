@@ -27,8 +27,8 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
 
     const resetData = (newData?: T) => {
         setCurrentData(newData ?? responseData);
-        if(newData)
-            setResponseData(newData)
+        if (newData)
+            setResponseData(newData);
         setDirty(false);
     };
 
@@ -53,12 +53,14 @@ export function useFetch<T>(url: string, options?: AdditionalOptions<T>): readon
             .then(r => r.json().then(data => ({ status: r.status, body: data })).catch(() => ({ status: r.status, body: null })))
             .then(({ status, body }) => {
                 if (status === 200) {
-                    options?.onComplete && options?.onComplete(body as T);
+                    if (options?.onComplete)
+                        options?.onComplete(body as T);
                     setCurrentData(body as T);
                     setResponseData(body as T);
                 }
                 else {
-                    options?.onError && options?.onError(body.message);
+                    if (options?.onError)
+                        options?.onError(body.message);
                     setError(body.message);
                 }
 

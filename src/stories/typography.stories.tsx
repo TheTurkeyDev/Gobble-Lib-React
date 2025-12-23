@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import {  Body1, Body2, Caption, Headline1, Headline2, Headline3, Headline4, Headline5, Subtitle1, Subtitle2 } from '..';
 
 export default {

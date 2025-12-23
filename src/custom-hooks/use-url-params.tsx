@@ -7,6 +7,7 @@ export const useUrlParams = () => {
     if (location && location.search) {
         location.search.substring(1).split('&').forEach((element: string) => {
             const keyVal = element.split('=');
+            // eslint-disable-next-line functional/immutable-data
             params[keyVal[0]] = keyVal[1];
         });
     }

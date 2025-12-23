@@ -50,23 +50,29 @@ const SliderInput = styled.input`
     &:checked+${Slider}:before {
         transform: translateX(26px);
     }
+
+    &:disabled+${Slider} {
+        opacity: 40%;
+        cursor: not-allowed;
+    }
 `;
 
 type ToggleSwitchProps = {
     readonly label: string
     readonly checked: boolean
+    readonly disabled?: boolean
     readonly onClick: () => void
 }
 
-export const ToggleSwitch = ({ label, checked, onClick }: ToggleSwitchProps) => {
+export const ToggleSwitch = ({ label, checked, disabled = false, onClick }: ToggleSwitchProps) => {
     return (
         <>
             <Label>
                 {label}
             </Label>
             <Switch>
-                <SliderInput type='checkbox' checked={checked} onChange={() => { }} />
-                <Slider onClick={onClick} />
+                <SliderInput type='checkbox' checked={checked} onChange={() => { }} disabled={disabled} />
+                <Slider onClick={() => !disabled && onClick()} />
             </Switch>
         </>
     );

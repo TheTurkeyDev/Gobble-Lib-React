@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import styled from 'styled-components';
 import { TextButton } from '../components/button';
 import { Dropdown, DropdownContent } from '../components/dropdown';

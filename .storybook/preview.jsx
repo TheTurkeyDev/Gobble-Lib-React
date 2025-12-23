@@ -1,7 +1,6 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { defaultLightTheme, defaultDarkTheme } from "../src/theme/theme"
 import { Toast } from "../src/toast/toast-context"
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import './css/fontawesome-all.min.css'
 import { BrowserRouter } from 'react-router-dom';
@@ -67,11 +66,9 @@ export const parameters = {
     },
   },
   viewport: {
-    viewports: {
+    options: {
       ...customViewports,
-      ...INITIAL_VIEWPORTS,
-    },
-    defaultViewport: 'ipad',
+    }
   },
 }
 
@@ -122,3 +119,11 @@ export const decorators = [
     );
   },
 ];
+
+export const initialGlobals = {
+  viewport: {
+    value: 'ipad',
+    isRotated: false
+  }
+};
+export const tags = ['autodocs'];

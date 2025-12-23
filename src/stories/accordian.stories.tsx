@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Accordion } from '../layout/accordion';
 import { Subtitle1 } from '../typography';
 import { OutlinedButton } from '../components';
@@ -18,7 +18,7 @@ export const Template: StoryObj<typeof Accordion> = {
         <Accordion headerContent={
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <Subtitle1>Test</Subtitle1>
-                <OutlinedButton onClick={e => { e.stopPropagation() }}>Button</OutlinedButton>
+                <OutlinedButton onClick={e => e.stopPropagation()}>Button</OutlinedButton>
             </div>
         }>Content</Accordion>
     </>

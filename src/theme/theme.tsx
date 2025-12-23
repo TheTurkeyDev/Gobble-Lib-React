@@ -15,7 +15,7 @@ export const ALMOST_WHITE = '#fafafa';
 export const defaultLightTheme: BaseTheme = {
     fontFamily: 'Ubuntu',
     background: {
-        color: '#E5E5E5',
+        color: '#f2f2f2',
         on: GRAY_BLUISH
     },
     navbar: {
@@ -133,6 +133,7 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 export const useThemeContext = () => {
     const theme = useContext(ThemeContext);
     if (!theme)
+        // eslint-disable-next-line functional/no-throw-statements
         throw new Error('Theme Context is undefined! Must be used from within a Theme Context Provider!');
     return theme;
 };

@@ -58,6 +58,7 @@ const ToastContext = createContext<ToastContextType | null>(null);
 export const useToast = () => {
     const toast = useContext(ToastContext);
     if (!toast)
+        // eslint-disable-next-line functional/no-throw-statements
         throw new Error('Toast is undefined! Must be used from within a Toast Provider!');
     return toast;
 };

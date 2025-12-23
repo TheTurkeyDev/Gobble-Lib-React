@@ -8,16 +8,16 @@ export type TableProps = React.TableHTMLAttributes<HTMLTableElement> & {
 export const Table = styled.table<TableProps>`
     width: 100%;
     height: 100%;
-    display: ${({ $tableColumns }) => !!$tableColumns ? 'grid' : 'table'};
+    display: ${({ $tableColumns }) => $tableColumns ? 'grid' : 'table'};
     grid-template-columns: ${({ $tableColumns }) => $tableColumns};
     border-spacing: 0;
 
     & thead {
-        display: ${({ $tableColumns }) => !!$tableColumns ? 'contents' : ''};
+        display: ${({ $tableColumns }) => $tableColumns ? 'contents' : ''};
     }
 
     & tbody {
-        display: ${({ $tableColumns }) => !!$tableColumns ? 'contents' : ''};
+        display: ${({ $tableColumns }) => $tableColumns ? 'contents' : ''};
     }
 
     & th {
@@ -27,7 +27,7 @@ export const Table = styled.table<TableProps>`
 
     & tr {
         border-top: 1px solid ${({ theme }) => theme.surface.on};
-        display: ${({ $tableColumns }) => !!$tableColumns ? 'contents' : ''};
+        display: ${({ $tableColumns }) => $tableColumns ? 'contents' : ''};
     }
 
     & td {
