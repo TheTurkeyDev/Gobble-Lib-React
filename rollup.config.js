@@ -7,8 +7,8 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import terser from '@rollup/plugin-terser';
 
 const packageJson = require("./package.json");
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
-const styledComponentsTransformer = createStyledComponentsTransformer({ minify: true });
+// const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+// const styledComponentsTransformer = createStyledComponentsTransformer({ minify: true });
 
 export default [
     {
@@ -35,11 +35,11 @@ export default [
                     exclude: ["**/__stories__", "**/*.stories.tsx"],
                 },
                 tsconfig: "./tsconfig.json",
-                transformers: [
-                    () => ({
-                        before: [styledComponentsTransformer],
-                    }),
-                ],
+                // transformers: [
+                //     () => ({
+                //         before: [styledComponentsTransformer],
+                //     }),
+                // ],
             }),
             babel({ babelHelpers: 'bundled' }),
             terser()
