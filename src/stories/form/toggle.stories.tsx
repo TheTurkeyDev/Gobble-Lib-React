@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { InputsWrapper, ToggleSwitch } from '../form';
+import { InputsWrapper, ToggleSwitch } from '../../form';
 import { useState } from 'react';
 
 export default {

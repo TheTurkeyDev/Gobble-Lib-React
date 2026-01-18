@@ -43,6 +43,7 @@ const InputContainer = styled.div<InputContainerProps>`
     border-radius: 4px;
     border: 1px solid ${({ theme }) => theme.inputs.outlineLowered};
     height: 36px;
+    width: min-content;
     display: grid;
     transition: background-color 0.2s;
     cursor:  ${({ disabled }) => disabled ? 'not-allowed' : ''};
