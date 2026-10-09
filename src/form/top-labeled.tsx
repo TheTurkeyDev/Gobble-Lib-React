@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Subtitle2 } from '../typography/typography';
+import { Subtitle2Css } from '../typography/typography';
 import { WithChildren } from '../with-children-type';
 
 const Wrapper = styled.div`
@@ -8,13 +8,18 @@ const Wrapper = styled.div`
     grid-template-rows: auto auto;
 `;
 
+const StyledLabel = styled.label`
+    ${Subtitle2Css}
+`;
+
 type TopLabeledProps = WithChildren & {
     readonly label: string
+    readonly htmlFor?: string
 }
 
-export const TopLabeled = ({ children, label }: TopLabeledProps) => (
+export const TopLabeled = ({ children, label, htmlFor }: TopLabeledProps) => (
     <Wrapper>
-        <Subtitle2>{label}</Subtitle2>
+        <StyledLabel htmlFor={htmlFor}>{label}</StyledLabel>
         {children}
     </Wrapper>
 );

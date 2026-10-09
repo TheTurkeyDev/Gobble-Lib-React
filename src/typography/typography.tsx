@@ -141,7 +141,7 @@ export const Subtitle1 = styled.h6`
   ${Subtitle1Css}
 `;
 
-export const Subtitle2 = styled.h6`
+export const Subtitle2Css = css`
   ${typographyBase}
   font-weight: ${FontWeight.MEDIUM};
   letter-spacing: 0.1%;
@@ -152,6 +152,10 @@ export const Subtitle2 = styled.h6`
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+`;
+
+export const Subtitle2 = styled.h6`
+  ${Subtitle2Css}
 `;
 
 export const Body1Css = css`

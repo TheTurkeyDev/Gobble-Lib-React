@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Opacity } from '../constants/opacity';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
+import { TopLabeled } from './top-labeled';
 
 const SelectWrapper = styled.select`
     ${Subtitle1Css}
@@ -29,6 +30,7 @@ const SelectWrapper = styled.select`
 
 type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {
     readonly label?: string
+    readonly topLabel?: boolean
 }
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
@@ -38,20 +40,34 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             value,
             onChange,
             label,
+            topLabel = false,
             ...props
         }: SelectProps,
         ref: React.Ref<HTMLSelectElement>,
-    ): JSX.Element => (
-        <>
-            {label && <Label htmlFor={id}>{label}</Label>}
+    ): JSX.Element => {
+        const inner = (
             <SelectWrapper
                 value={value}
                 onChange={onChange}
                 {...props}
                 ref={ref}
             />
-        </>
-    ),
+        );
+
+        return topLabel ?
+            (
+                <TopLabeled label={label ?? ''} htmlFor={id}>
+                    {inner}
+                </TopLabeled>
+            )
+            :
+            (
+                <>
+                    {label && <Label htmlFor={id}>{label}</Label>}
+                    {inner}
+                </>
+            );
+    },
 );
 
 export const Option = styled.option`

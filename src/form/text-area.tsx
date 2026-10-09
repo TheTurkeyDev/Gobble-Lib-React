@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Opacity } from '../constants/opacity';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
+import { TopLabeled } from './top-labeled';
 
 const StyledTextArea = styled.textarea`
     ${Subtitle1Css}
@@ -36,13 +37,25 @@ const StyledTextArea = styled.textarea`
 
 type TextAreaProps = React.InputHTMLAttributes<HTMLTextAreaElement> & {
     readonly label?: string
+    readonly topLabel?: boolean
 }
 
-export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({ id, label, ...props }: TextAreaProps, ref: React.Ref<HTMLTextAreaElement>) => {
-    return (
-        <>
-            {label && <Label htmlFor={id}>{label}</Label>}
-            <StyledTextArea aria-label={`${id}-input`} id={id} ref={ref} {...props} />
-        </>
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({ id, label, topLabel = false, ...props }: TextAreaProps, ref: React.Ref<HTMLTextAreaElement>) => {
+    const inner = (
+        <StyledTextArea aria-label={`${id}-input`} id={id} ref={ref} {...props} />
     );
+
+    return topLabel ?
+        (
+            <TopLabeled label={label ?? ''} htmlFor={id}>
+                {inner}
+            </TopLabeled>
+        )
+        :
+        (
+            <>
+                {label && <Label htmlFor={id}>{label}</Label>}
+                {inner}
+            </>
+        );
 });

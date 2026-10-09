@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Opacity } from '../constants/opacity';
 import { Subtitle1Css } from '../typography/typography';
 import { Label } from './label';
+import { TopLabeled } from './top-labeled';
 
 const StyledInput = styled.input`
     ${Subtitle1Css}
@@ -59,19 +60,32 @@ const InputContainer = styled.div<InputContainerProps>`
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
     readonly label?: string
+    readonly topLabel?: boolean
     readonly prefixContent?: JSX.Element
     readonly postfixContent?: JSX.Element
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, prefixContent, postfixContent, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
-    return (
-        <>
-            {label && <Label htmlFor={id}>{label}</Label>}
-            <InputContainer disabled={props.disabled ?? false} readOnly={props.readOnly ?? false} style={{ gridTemplateColumns: `${prefixContent ? 'auto ' : ' '}1fr ${postfixContent ? 'auto' : ''}` }}>
-                {prefixContent}
-                <StyledInput aria-label={`${id}-input`} id={id} ref={ref} {...props} />
-                {postfixContent}
-            </InputContainer>
-        </>
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ id, label, topLabel = false, prefixContent, postfixContent, ...props }: InputProps, ref: React.Ref<HTMLInputElement>) => {
+
+    const inner = (
+        <InputContainer disabled={props.disabled ?? false} readOnly={props.readOnly ?? false} style={{ gridTemplateColumns: `${prefixContent ? 'auto ' : ' '}1fr ${postfixContent ? 'auto' : ''}` }}>
+            {prefixContent}
+            <StyledInput aria-label={`${id}-input`} id={id} ref={ref} {...props} />
+            {postfixContent}
+        </InputContainer>
     );
+
+    return topLabel ?
+        (
+            <TopLabeled label={label ?? ''} htmlFor={id}>
+                {inner}
+            </TopLabeled>
+        )
+        :
+        (
+            <>
+                {label && <Label htmlFor={id}>{label}</Label>}
+                {inner}
+            </>
+        );
 });
