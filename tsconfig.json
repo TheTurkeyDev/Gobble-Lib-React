@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "rootDir": "./src",
         "outDir": "dist",
         "target": "esnext",
         "module": "esnext",
@@ -30,8 +31,7 @@
         },
     },
     "include": [
-        "./src",
-        "./vite.config.ts"
+        "./src"
     ],
     "exclude": [
         "node_modules"
